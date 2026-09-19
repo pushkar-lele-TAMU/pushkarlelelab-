@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pushkar Lele Lab — Biomolecular Engineering &amp; Biological Soft-Matter</title>
+
+<!-- Google Fonts: Plus Jakarta Sans (the only font used across the site) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- All styling lives in css/style.css -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       HOME PAGE
+       ============================================================ -->
+  <div class="page show" id="home">
+  <div class="nav">
+    <div class="brandbox">
+      <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/>
+        <circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/>
+        <circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/>
+        <circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/>
+        <circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/>
+        <line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/>
+      </svg>
+      <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div>
+    </div>
+    <div class="menu"><span class="on" onclick="go('home')">Home</span><span onclick="go('research')">Research</span><span onclick="go('pubs')">Publications</span><span onclick="go('members')">Members</span><span onclick="go('facilities')">Facilities</span><span class="cta" onclick="go('contact')">Contact</span></div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-l">
+      <h1>Understanding life at the molecular level</h1>
+      <div class="hero-underline"></div>
+      <p>We develop quantitative understanding of the molecular mechanisms that drive cell-signaling, cancers, and antibiotic resistance.</p>
+      <a class="cta">Explore our research →</a>
+    </div>
+    <div class="hero-r"><div class="img"></div><div class="tint"></div></div>
+  </div>
+
+  <div class="rf">
+    <div class="rf-head">Research Focus</div>
+    <div class="rf-grid">
+      <div class="rf-item">
+        <svg class="rf-icon" viewBox="0 0 24 24" fill="none" stroke="#1a4d8f" stroke-width="1.8"><path d="M9 3h6M10 3v6l-4 9a2 2 0 002 3h8a2 2 0 002-3l-4-9V3"/></svg>
+        <h4>Experimental Approaches</h4>
+        <p>TIRF, FRET, optical tweezers, 3D printing, micro-manipulation, and laser-darkfield imaging.</p>
+      </div>
+      <div class="rf-item">
+        <svg class="rf-icon" viewBox="0 0 24 24" fill="none" stroke="#1a4d8f" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
+        <h4>Computational Methods</h4>
+        <p>Stochastic simulations, Monte-Carlo dynamics, coarse-grained modeling, and statistical mechanics.</p>
+      </div>
+      <div class="rf-item">
+        <svg class="rf-icon" viewBox="0 0 24 24" fill="none" stroke="#1a4d8f" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3"/></svg>
+        <h4>Interdisciplinary Integration</h4>
+        <p>Microfluidics, molecular biology, biochemistry, and 3D printing technologies.</p>
+      </div>
+      </div></div>
+
+  <div class="mission"><div class="ey">WHAT WE STUDY &amp; WHY IT MATTERS</div><div class="lead">We decode how pathogenic bacteria sense and respond to their environment — work central to fighting <b>antibiotic resistance</b>, <b>stomach cancers</b>, and <b>chronic infection</b>.</div></div>
+
+  <div class="wrap"><div class="sec-title">Research pillars</div><div class="sec-sub">Four distinct directions, one mission.</div>
+    <div class="grid4">
+      <div class="pill"><div class="pill-img" style="background-image:url('assets/images/pillar-antibiotic.jpg')"></div><div class="pill-grad"></div><h3>Antibiotic tolerance</h3><a>Read more →</a></div>
+      <div class="pill"><div class="pill-img" style="background-image:url('assets/images/pillar-immune.jpg')"></div><div class="pill-grad"></div><h3>Immune–pathogen</h3><a>Read more →</a></div>
+      <div class="pill"><div class="pill-img" style="background-image:url('assets/images/pillar-carcinogenic.jpg')"></div><div class="pill-grad"></div><h3>Carcinogenic bacteria</h3><a>Read more →</a></div>
+      <div class="pill"><div class="pill-img" style="background-image:url('assets/images/pillar-mechanics.jpg')"></div><div class="pill-grad"></div><h3>Cell mechanics</h3><a>Read more →</a></div>
+    </div>
+  </div>
+
+  <div class="lower" style="grid-template-columns:1fr; max-width:820px;">
+    <div class="join"><div class="ey">JOIN THE LAB</div><h3>Join our team</h3><p>Open positions for graduate students and postdocs. If you're excited by biophysics and infection, we'd love to hear from you. Contact Prof. Lele at <a href="mailto:plele@tamu.edu">plele@tamu.edu</a> to learn more.</p></div>
+  </div>
+  <div class="foot"><div class="fcol"><h4>Pushkar Lele Lab</h4><div>Biomolecular engineering &amp; biological soft-matter</div></div><div class="fcol"><h4>Location</h4><div>241 Jack E. Brown Building</div><div>Artie McFerrin Dept. of Chemical Engineering</div><div>Texas A&amp;M University</div><div>College Station, TX 77843-3122</div></div><div class="fcol"><h4>Contact</h4><div>(979) 458-2790</div><div><a>plele@tamu.edu</a></div></div><div class="fcol"><h4>Navigation</h4><div>Home · Research · Publications</div><div>Members · Facilities</div><div>Contact</div></div></div>
+</div>
+  <!-- ============================================================
+       RESEARCH PAGE
+       ============================================================ -->
+  <div class="page" id="research">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<span onclick="go('home')">Home</span>
+<span class="on" onclick="go('research')">Research</span>
+<span onclick="go('pubs')">Publications</span>
+<span onclick="go('members')">Members</span>
+<span onclick="go('facilities')">Facilities</span>
+
+<span class="cta" onclick="go('contact')">Contact</span></div></div>
+  <div class="band"><div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1600&q=80')"></div><div class="band-tint"></div><div class="band-c"><div class="ey">OUR RESEARCH</div><h1>Mechanisms of infection &amp; resistance</h1><p>We deploy computational and experimental approaches to investigate how pathogens perceive and respond to environmental stresses.</p></div></div>
+  <div class="wrap">
+    <div class="rblock"><div class="rtext"><h3>Antibiotic tolerance</h3><p>We study the mechanisms by which bacteria develop tolerance against beta-lactam antibiotics, focusing on epigenetic phenomena and short-time adaptations. Working at the single-cell level, we correlate adaptive responses with alterations in the mechanical properties of the bacterial cell wall.</p></div><div class="rimg" style="background-image:url('assets/images/pillar-antibiotic.jpg')"></div></div>
+    <div class="rblock"><div class="rtext"><h3>Immune–pathogen interactions</h3><p>The innate immune system is our first line of defense against infection. We investigate how neutrophils exhibit diverse responses when targeting pathogenic bacteria, combining microfluidics, optical trapping, and single-molecule imaging.</p></div><div class="rimg" style="background-image:url('assets/images/pillar-immune.jpg')"></div></div>
+    <div class="rblock"><div class="rtext"><h3>Spread of carcinogenic bacteria</h3><p><em>Helicobacter pylori</em> infections are a major cause of peptic ulcers and gastric cancers. We investigate how the chemotaxis signaling network modulates <em>H. pylori</em>'s flagellar functions to promote colonization.</p></div><div class="rimg" style="background-image:url('assets/images/pillar-carcinogenic.jpg')"></div></div>
+    <div class="rblock"><div class="rtext"><h3>Cell mechanics &amp; mechanosensing</h3><p>Bacteria must sense attachment to a surface before establishing biofilms. We research mechanosensing in bacteria to determine how biofilms form, building on the discovery that flagellar protein components function as mechanosensors.</p></div><div class="rimg" style="background-image:url('assets/images/pillar-mechanics.jpg')"></div></div>
+  </div>
+<div class="foot"><div class="fcol"><h4>Pushkar Lele Lab</h4><div>Biomolecular engineering &amp; biological soft-matter</div></div><div class="fcol"><h4>Location</h4><div>241 Jack E. Brown Building</div><div>Texas A&amp;M University</div><div>College Station, TX 77843-3122</div></div><div class="fcol"><h4>Contact</h4><div>(979) 458-2790</div><div><a>plele@tamu.edu</a></div></div><div class="fcol"><h4>Navigation</h4><div>Home · Research · Members</div></div></div>
+</div>
+  <!-- ============================================================
+       PUBLICATIONS PAGE — Short List + Full List, single scroll
+       ============================================================ -->
+  <div class="page" id="pubs">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<span onclick="go('home')">Home</span>
+<span onclick="go('research')">Research</span>
+<span class="on" onclick="go('pubs')">Publications</span>
+<span onclick="go('members')">Members</span>
+<span onclick="go('facilities')">Facilities</span>
+
+<span class="cta" onclick="go('contact')">Contact</span></div></div>
+  <div class="band"><div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1532153955177-f59af40d6472?w=1600&q=80')"></div><div class="band-tint"></div><div class="band-c"><div class="ey">PUBLICATIONS</div><h1>Peer-reviewed research</h1><p>A complete record of the lab&rsquo;s peer-reviewed work.</p></div></div>
+  <div class="wrap">
+    <div class="publist">
+      <div class="listhead"><h2>Short List</h2><div class="listrule"></div><span class="listcount">9 selected papers</span></div>
+      <div class="pubitem"><div class="pnum">1</div><div class="pbody"><div class="ptitle">Facilitated search and funneling at the cellular scale enable motile bacteria to penetrate extreme confinements</div><div class="pauth">P. Subrahmaniyan, S. Mukhopadhyay, R. Bishayi, R. Gupta, A. Johri, J. Janeev, N. Chaubal, A. Katiyar, T.P. Lele, P.P. Lele</div><div class="pjour">Communications Physics <span class="pyear">2026 (accepted)</span></div></div></div>
+<div class="pubitem"><div class="pnum">2</div><div class="pbody"><div class="ptitle">Heterogeneous Distribution of Proton-Motive Force in Nonheritable Antibiotic Resistance</div><div class="pauth">A. H. Lee, R. Gupta, H. N. Nguyen, I. R. Schmitz, D. A. Siegele, and P. P. Lele</div><div class="pjour">mBio <span class="pyear">2023</span></div></div></div>
+<div class="pubitem"><div class="pnum">3</div><div class="pbody"><div class="ptitle">Mechanosensitive recruitment of stator units promotes binding of the response regulator CheY-P to the flagellar motor</div><div class="pauth">J. D. Antani, R. Gupta, A. H. Lee, K. Y. Rhee, M. D. Manson &amp; P. P. Lele</div><div class="pjour">Nature Communications <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">4</div><div class="pbody"><div class="ptitle">Asymmetric random walks reveal that the chemotaxis network modulates flagellar rotational bias in <em>Helicobacter pylori</em></div><div class="pauth">J. Antani, A. X. Sumali, T. P. Lele, P. P. Lele</div><div class="pjour">eLife <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">5</div><div class="pbody"><div class="ptitle">Biphasic chemotaxis of <em>Escherichia coli</em> to the microbiota metabolite indole</div><div class="pauth">J. Yang, R. Chawla, K. Rhee, R. Gupta, M. Manson, A. Jayaraman, P. P. Lele</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2020, 117 (11) 6114-6120</span></div></div></div>
+<div class="pubitem"><div class="pnum">6</div><div class="pbody"><div class="ptitle">The flagellar motor of <em>Caulobacter crescentus</em> generates more torque when a cell swims backward</div><div class="pauth">P. P. Lele, T. Roland, A. Shrivastava, Y. Chen, H. C. Berg</div><div class="pjour">Nature Physics <span class="pyear">2016, 12, 175-178</span></div></div></div>
+<div class="pubitem"><div class="pnum">7</div><div class="pbody"><div class="ptitle">Response thresholds in bacterial chemotaxis</div><div class="pauth">P. P. Lele, A. Shrivastava, T. Roland, H. C. Berg</div><div class="pjour">Science Advances <span class="pyear">2015, 1:e1500029s</span></div></div></div>
+<div class="pubitem"><div class="pnum">8</div><div class="pbody"><div class="ptitle">Dynamics of mechanosensing in the bacterial flagellar motor</div><div class="pauth">P. P. Lele, Basarab G. Hosu, H. C. Berg</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2013, 110 (29), 11839-11844</span></div></div></div>
+<div class="pubitem"><div class="pnum">9</div><div class="pbody"><div class="ptitle">Mechanism for adaptive remodeling of the bacterial flagellar switch</div><div class="pauth">P. P. Lele, R. W. Branch, V. Nathan, H. C. Berg</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2012, 109 (49), 20018-20022</span></div></div></div>
+    </div>
+
+    <div class="publist" style="margin-top:64px;">
+      <div class="listhead"><h2>Full List</h2><div class="listrule"></div><span class="listcount">37 publications</span></div>
+      <div class="pubitem"><div class="pnum">1</div><div class="pbody"><div class="ptitle">Mechanoplasticity in the response of human neutrophils to bacteria</div><div class="pauth">L. Ghosh, A. Shaji, R. Bishayi, P. Subrahmaniyan, S. Mukhopadhyay, T.P. Lele, P.P. Lele</div><div class="pjour">submitted</div></div></div>
+<div class="pubitem"><div class="pnum">2</div><div class="pbody"><div class="ptitle">High-Fidelity Micron-Sized Pattern Transfer to PDMS Molds through UV-Ozone Treated Polymeric Replicas of Silicon Wafers</div><div class="pauth">Adelie Lorge, Romit Bishayi, Prasanth Shanmughan, Sayak Mukhopadhyay, Pravin Subrahmaniyan, P.P. Lele</div><div class="pjour">submitted</div></div></div>
+<div class="pubitem"><div class="pnum">3</div><div class="pbody"><div class="ptitle">Facilitated search and funneling at the cellular scale enable motile bacteria to penetrate extreme confinements</div><div class="pauth">P. Subrahmaniyan, S. Mukhopadhyay, R. Bishayi, R. Gupta, A. Johri, J. Janeev, N. Chaubal, A. Katiyar, T.P. Lele, P.P. Lele</div><div class="pjour">Communications Physics <span class="pyear">2026 (accepted)</span></div></div></div>
+<div class="pubitem"><div class="pnum">4</div><div class="pbody"><div class="ptitle">Probiotic exopolysaccharide-mediated encapsulation of Indole-3-Acetic Acid: A biocompatible approach for delivery, enhanced stability, and <em>E. coli</em> motility disruption</div><div class="pauth">S. Balyan, S. Mukhopadhyay, D. Chatterjee, V. Dadwal, D.K. Jha, P.P. Lele, B.S. Patil</div><div class="pjour">submitted</div></div></div>
+<div class="pubitem"><div class="pnum">5</div><div class="pbody"><div class="ptitle">Scrutinizing Stator Rotation in the Bacterial Flagellum: Reconciling Experiments and Switching Models</div><div class="pauth">A. Joshi, P. P. Lele</div><div class="pjour">Biomolecules <span class="pyear">2025</span></div></div></div>
+<div class="pubitem"><div class="pnum">6</div><div class="pbody"><div class="ptitle">Low pH amplifies chemotaxis toward urea in <em>Helicobacter pylori</em></div><div class="pauth">A. Shaji, P. Subrahmaniyan, S. Mukhopadhyay, R. Shin, H. Santhoshkumar, P. P. Lele</div><div class="pjour">Biophysical Journal <span class="pyear">2025</span></div></div></div>
+<div class="pubitem"><div class="pnum">7</div><div class="pbody"><div class="ptitle">Urea-loaded PLGA microspheres as point-sources of attractants for <em>Helicobacter pylori</em></div><div class="pauth">P. Shanmughan, P. Subrahmaniyan, D. Bhatnagar, S. Ranganathan, P. P. Lele</div><div class="pjour">Biotechnology and Bioengineering <span class="pyear">2024</span></div></div></div>
+<div class="pubitem"><div class="pnum">8</div><div class="pbody"><div class="ptitle">Dynamic Adaptation in Extant Proteins Facilitates Antibiotic Tolerance in Energetic <em>Escherichia coli</em></div><div class="pauth">S. Mukhopadhyay, R. Bishayi, A. Shaji, A. H. Lee, R. Gupta, N. Mohajeri, A. Katiyar, B. McKee, I. R. Schmitz, R. Shin, T.P. Lele, P.P. Lele</div><div class="pjour">under review</div></div></div>
+<div class="pubitem"><div class="pnum">9</div><div class="pbody"><div class="ptitle">Matrix stiffness drives drop-like nuclear deformation and lamin A/C dependent YAP nuclear translocation</div><div class="pauth">T. Wang, S. Abolghasemzade, B. P. McKee, I. Singh, K. Pendyala, N. Mohajeri, H. Patel, A. Shaji, A. L. Kersey, K. Harsh, S. Kaur, C. R. Dollahon, S. Chukkapalli, P. P. Lele, D. E. Conway, A. K. Gaharwar, R. B. Dickinson, and T. P. Lele</div><div class="pjour">Nature Communications <span class="pyear">2024</span></div></div></div>
+<div class="pubitem"><div class="pnum">10</div><div class="pbody"><div class="ptitle">Reassessing the Standard Chemotaxis Framework for Understanding Biased Migration in <em>Helicobacter pylori</em></div><div class="pauth">J. D. Antani, A. Shaji, R. Gupta, P. P. Lele</div><div class="pjour">Annual Review of Chemical and Biomolecular Engineering <span class="pyear">2023</span></div></div></div>
+<div class="pubitem"><div class="pnum">11</div><div class="pbody"><div class="ptitle">Real-time Deduction of Mechanisms and Kinetics Underlying Photocatalytic Water Disinfection</div><div class="pauth">N. A. Vidwans, K. Rhee, P. P. Lele, S. Vaddiraju</div><div class="pjour">ACS ES&amp;T Water <span class="pyear">2023</span></div></div></div>
+<div class="pubitem"><div class="pnum">12</div><div class="pbody"><div class="ptitle">Indole is sensed by multiple receptor domains in Tar and Tsr</div><div class="pauth">J. Yang, R. Chawla, K. Y. Rhee, R. Gupta, A. Aditya, P. Rane, M. D. Manson, A. Jayaraman, P. P. Lele</div><div class="pjour">under review</div></div></div>
+<div class="pubitem"><div class="pnum">13</div><div class="pbody"><div class="ptitle">Heterogeneous Distribution of Proton-Motive Force in Nonheritable Antibiotic Resistance</div><div class="pauth">A. H. Lee, R. Gupta, H. N. Nguyen, I. R. Schmitz, D. A. Siegele, and P. P. Lele</div><div class="pjour">mBio <span class="pyear">2023</span></div></div></div>
+<div class="pubitem"><div class="pnum">14</div><div class="pbody"><div class="ptitle">Editorial: Biological rotary nanomotors</div><div class="pauth">M. D. Manson, R. Gupta, P. P. Lele, J. Liu and T. M. Duncan</div><div class="pjour">Frontiers in Microbiology <span class="pyear">2022</span></div></div></div>
+<div class="pubitem"><div class="pnum">15</div><div class="pbody"><div class="ptitle">The nucleus bypasses obstacles by deforming like a drop with surface tension mediated by lamin A/C</div><div class="pauth">A. Katiyar, J. Zhang, J. D. Antani, Y. Yu, P. P. Lele, C. A. Reinhart-King, N. J. Sniadecki, K. J. Roux, R. B. Dickinson, T. P. Lele</div><div class="pjour">Advanced Science <span class="pyear">2022</span></div></div></div>
+<div class="pubitem"><div class="pnum">16</div><div class="pbody"><div class="ptitle">Bacterial proprioception: can the bacterium sense its motility?</div><div class="pauth">Rachit Gupta, Junhua Yuan and Pushkar P. Lele</div><div class="pjour">Frontiers in Microbiology <span class="pyear">2022</span></div></div></div>
+<div class="pubitem"><div class="pnum">17</div><div class="pbody"><div class="ptitle">Indole modulates cooperative protein-protein interactions in the flagellar motor</div><div class="pauth">Rachit Gupta, Kathy Y. Rhee, Sarah D. Beagle, Ravi Chawla, Nicolas Perdomo, Steve W. Lockless and Pushkar P. Lele</div><div class="pjour">PNAS Nexus <span class="pyear">2022</span></div></div></div>
+<div class="pubitem"><div class="pnum">18</div><div class="pbody"><div class="ptitle">Flagellar Sensing of Surfaces</div><div class="pauth">J. Antani &amp; P. P. Lele</div><div class="pjour">Physical Biology <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">19</div><div class="pbody"><div class="ptitle">Mechanosensitive recruitment of stator units promotes binding of the response regulator CheY-P to the flagellar motor</div><div class="pauth">J. D. Antani, R. Gupta, A. H. Lee, K. Y. Rhee, M. D. Manson &amp; P. P. Lele</div><div class="pjour">Nature Communications <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">20</div><div class="pbody"><div class="ptitle">Asymmetric random walks reveal that the chemotaxis network modulates flagellar rotational bias in <em>Helicobacter pylori</em></div><div class="pauth">J. Antani, A. X. Sumali, T. P. Lele, P. P. Lele</div><div class="pjour">eLife <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">21</div><div class="pbody"><div class="ptitle">Biphasic chemotaxis of <em>Escherichia coli</em> to the microbiota metabolite indole</div><div class="pauth">J. Yang, R. Chawla, K. Rhee, R. Gupta, M. Manson, A. Jayaraman, P. P. Lele</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2020, 117 (11) 6114-6120</span></div></div></div>
+<div class="pubitem"><div class="pnum">22</div><div class="pbody"><div class="ptitle">A method for direct imaging of x-z cross sections of fluorescent samples</div><div class="pauth">A. Katiyar, J. D. Antani, B. P. McKee, R. Gupta, P. P. Lele, T. P. Lele</div><div class="pjour">Journal of Microscopy <span class="pyear">2020</span></div></div></div>
+<div class="pubitem"><div class="pnum">23</div><div class="pbody"><div class="ptitle">Protein expression-independent response of intensity-based pH-sensitive fluorophores in <em>Escherichia coli</em></div><div class="pauth">K. Rhee, R. Chawla, P. P. Lele</div><div class="pjour">PLOS ONE <span class="pyear">2020, 15(8): e0234849</span></div></div></div>
+<div class="pubitem"><div class="pnum">24</div><div class="pbody"><div class="ptitle">Molecular Mechanism for Attractant Signaling to DHMA by <em>E. coli</em> Tar</div><div class="pauth">A. Orr, J. Yang, R. Chawla, K. Hull, M. Zhu, D. Romo, P. P. Lele, A. Jayaraman, M. Manson, P. Tamamis</div><div class="pjour">Biophysical Journal <span class="pyear">2020, 118 (2), 492</span></div></div></div>
+<div class="pubitem"><div class="pnum">25</div><div class="pbody"><div class="ptitle">A skeptic&rsquo;s guide to bacterial mechanosensing</div><div class="pauth">R. Chawla, R. Gupta, T. P. Lele, and P. P. Lele</div><div class="pjour">Journal of Molecular Biology <span class="pyear">2020, 432 (2), 523</span></div></div></div>
+<div class="pubitem"><div class="pnum">26</div><div class="pbody"><div class="ptitle">Switching and Torque Generation in Swarming cells of <em>E. coli</em></div><div class="pauth">K. M. Ford, J. Antani, A. Nagarajan, M. M. Johnson, P. P. Lele</div><div class="pjour">Frontiers in Microbiology <span class="pyear">2018, 9, 2197</span></div></div></div>
+<div class="pubitem"><div class="pnum">27</div><div class="pbody"><div class="ptitle">Viscous drag on the flagellum activates <em>Bacillus subtilis</em> entry into the K-state</div><div class="pauth">C. Diethmaier, R. Chawla, A. Canzoneri, D. B. Kearns, P. P. Lele, D. Dubnau</div><div class="pjour">Molecular Microbiology <span class="pyear">2017, 106(3), 367-380</span></div></div></div>
+<div class="pubitem"><div class="pnum">28</div><div class="pbody"><div class="ptitle">Molecular modeling of Switch-Remodeling <span style="color:#586b84;">(Book Chapter)</span></div><div class="pauth">P. P. Lele</div><div class="pjour">Methods in Microbiology (Clifton, N.J.) <span class="pyear">2018, 1729:347-352</span></div></div></div>
+<div class="pubitem"><div class="pnum">29</div><div class="pbody"><div class="ptitle">Torque, but not FliL, regulates mechanosensitive flagellar motor-function</div><div class="pauth">R. Chawla, K. M. Ford, P. P. Lele</div><div class="pjour">Scientific Reports <span class="pyear">2017, 7, 5565</span></div></div></div>
+<div class="pubitem"><div class="pnum">30</div><div class="pbody"><div class="ptitle">Biophysical Characterization of Flagellar Motor Functions</div><div class="pauth">K. M. Ford, R. Chawla, P. P. Lele</div><div class="pjour">Journal of Visualized Experiments <span class="pyear">2017, 119, e55240</span></div></div></div>
+<div class="pubitem"><div class="pnum">31</div><div class="pbody"><div class="ptitle">The flagellar motor of <em>Caulobacter crescentus</em> generates more torque when a cell swims backward</div><div class="pauth">P. P. Lele, T. Roland, A. Shrivastava, Y. Chen, H. C. Berg</div><div class="pjour">Nature Physics <span class="pyear">2016, 12, 175-178</span></div></div></div>
+<div class="pubitem"><div class="pnum">32</div><div class="pbody"><div class="ptitle">Response thresholds in bacterial chemotaxis</div><div class="pauth">P. P. Lele, A. Shrivastava, T. Roland, H. C. Berg</div><div class="pjour">Science Advances <span class="pyear">2015, 1:e1500029s</span></div></div></div>
+<div class="pubitem"><div class="pnum">33</div><div class="pbody"><div class="ptitle">Switching of Bacterial Flagellar Motors Triggered by Mutant FliG</div><div class="pauth">P. P. Lele &amp; H. C. Berg</div><div class="pjour">Biophysical Journal <span class="pyear">2015, 108 (5), 1275-1280</span></div></div></div>
+<div class="pubitem"><div class="pnum">34</div><div class="pbody"><div class="ptitle">Gliding is driven by a rotary motor</div><div class="pauth">A. Shrivastava, P. P. Lele, H. C. Berg</div><div class="pjour">Current Biology <span class="pyear">2015, 25 (3), 338-341</span></div></div></div>
+<div class="pubitem"><div class="pnum">35</div><div class="pbody"><div class="ptitle">FRAP analysis: accounting for bleaching during image capture</div><div class="pauth">J. Wu, N. Shekhar, P. P. Lele, T. P. Lele</div><div class="pjour">PLoS ONE <span class="pyear">2012, 7(8): e42854</span></div></div></div>
+<div class="pubitem"><div class="pnum">36</div><div class="pbody"><div class="ptitle">Dynamics of mechanosensing in the bacterial flagellar motor</div><div class="pauth">P. P. Lele, Basarab G. Hosu, H. C. Berg</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2013, 110 (29), 11839-11844</span></div></div></div>
+<div class="pubitem"><div class="pnum">37</div><div class="pbody"><div class="ptitle">Mechanism for adaptive remodeling of the bacterial flagellar switch</div><div class="pauth">P. P. Lele, R. W. Branch, V. Nathan, H. C. Berg</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2012, 109 (49), 20018-20022</span></div></div></div>
+    </div>
+  </div>
+<div class="foot"><div class="fcol"><h4>Pushkar Lele Lab</h4><div>Biomolecular engineering &amp; biological soft-matter</div></div><div class="fcol"><h4>Location</h4><div>241 Jack E. Brown Building</div><div>Texas A&amp;M University</div><div>College Station, TX 77843-3122</div></div><div class="fcol"><h4>Contact</h4><div>(979) 458-2790</div><div><a>plele@tamu.edu</a></div></div><div class="fcol"><h4>Navigation</h4><div>Home · Research · Members</div></div></div>
+</div>
+  <!-- ============================================================
+       MEMBERS PAGE — PI card is static below; the grid of members
+       is filled in automatically from js/members-data.js
+       ============================================================ -->
+  <div class="page" id="members">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<span onclick="go('home')">Home</span>
+<span onclick="go('research')">Research</span>
+<span onclick="go('pubs')">Publications</span>
+<span class="on" onclick="go('members')">Members</span>
+<span onclick="go('facilities')">Facilities</span>
+
+<span class="cta" onclick="go('contact')">Contact</span></div></div>
+  <div class="band"><div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80')"></div><div class="band-tint"></div><div class="band-c"><div class="ey">OUR TEAM</div><h1>Members</h1><p>The people behind the science.</p></div></div>
+  <div class="wrap">
+    <div class="pi-card">
+      <div class="pi-photo" style="background-image:url('https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?w=500&q=80')"></div>
+      <div class="pi-info"><h3>Dr. Pushkar P. Lele</h3><div class="role">Professor &amp; Chancellor's Fellow · William and Ruth Neely Faculty Fellow</div>
+      <p><span class="ph">[PI photo &amp; bio pending — to be added once provided by Dr. Lele.]</span></p>
+      <div class="cred">Postdoctoral Fellow, Molecular &amp; Cellular Biology, Harvard University<br>Ph.D., Chemical Engineering, University of Delaware<br>B.Tech., Chemical Engineering, UDCT Mumbai</div></div>
+    </div>
+    <div class="role-title">Lab Members</div>
+    <div class="mgrid" id="members-grid">
+      <!-- Member cards are generated automatically from js/members-data.js -->
+    </div>
+    <div class="alumni"><h3>Alumni</h3><div class="ag">
+      Dr. Annie Lee — Eli Lilly &amp; Company<br>Dr. Kathy Rhee — Wildtype<br>Dr. Rachit Gupta — L.E.K Consulting<br>Dr. Jingyun Yang — Seres Therapeutics<br>Dr. Ravi Chawla — Scripps Institute<br>Dr. Jyot Antani — Yale University<br>Nhi Hong Nguyen — University of Michigan<br>Anita Sumali — TAMU<br>Dr. Katie Ford — Bain &amp; Company<br>Madeline Johnson — Vanderbilt University<br>Minh Tran — University of Delaware<br>Dr. Aditya — Memorial Sloan Kettering<br>Chris Sukumpantanasarn — OSIsoft<br>Priya Nair — UT Austin<br>Sophia Lin — BP<br>Rafael Contrucci — GHD
+    </div></div>
+  </div>
+<div class="foot"><div class="fcol"><h4>Pushkar Lele Lab</h4><div>Biomolecular engineering &amp; biological soft-matter</div></div><div class="fcol"><h4>Location</h4><div>241 Jack E. Brown Building</div><div>Texas A&amp;M University</div><div>College Station, TX 77843-3122</div></div><div class="fcol"><h4>Contact</h4><div>(979) 458-2790</div><div><a>plele@tamu.edu</a></div></div><div class="fcol"><h4>Navigation</h4><div>Home · Research · Members</div></div></div>
+</div>
+  <!-- ============================================================
+       FACILITIES PAGE
+       ============================================================ -->
+  <div class="page" id="facilities">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<span onclick="go('home')">Home</span>
+<span onclick="go('research')">Research</span>
+<span onclick="go('pubs')">Publications</span>
+<span onclick="go('members')">Members</span>
+<span class="on" onclick="go('facilities')">Facilities</span>
+
+<span class="cta" onclick="go('contact')">Contact</span></div></div>
+  <div class="band"><div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=1600&q=80')"></div><div class="band-tint"></div><div class="band-c"><div class="ey">LAB FACILITIES</div><h1>Instruments &amp; capabilities</h1><p>State-of-the-art microscopy, microfluidics, and molecular biology infrastructure.</p></div></div>
+  <div class="wrap">
+    <div class="fcard"><div class="fimg2" style="background-image:url('https://images.unsplash.com/photo-1576086213369-97a306d36557?w=900&q=80')"></div><div class="ftext2"><h3>Microscopy</h3><ul><li>7 microscopes incl. Nikon Ti2-E with Ring-TIRF illumination</li><li>Optical tweezers-equipped Nikon Ti-E</li><li>FRET on live cells; single-photon detection (Hamamatsu PMTs)</li><li>Darkfield, phase, FRAP capabilities</li></ul></div></div>
+    <div class="fcard"><div class="fimg2" style="background-image:url('https://images.unsplash.com/photo-1628595351029-c2bf17511435?w=900&q=80')"></div><div class="ftext2"><h3>Microfluidics</h3><ul><li>Custom microfluidic device fabrication</li><li>Integrated with 3D-printing workflows</li><li><span class="ph">[Additional details to be added]</span></li></ul></div></div>
+    <div class="fcard"><div class="fimg2" style="background-image:url('https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=900&q=80')"></div><div class="ftext2"><h3>Molecular Biology &amp; Culturing</h3><ul><li>Genome editing (λ-Red homologous recombineering)</li><li>Plasmid extraction &amp; protein purification</li><li>Molecular cloning; PCR / gel electrophoresis / electroporation</li><li>BSL culturing facilities</li></ul></div></div>
+    <div class="fcard"><div class="fimg2" style="background-image:url('https://images.unsplash.com/photo-1614308457932-e16d85c5d053?w=900&q=80')"></div><div class="ftext2"><h3>Micro-manipulation &amp; Micro-gravity</h3><ul><li>TransferMan 4r &amp; FemtoJet 4i microinjector</li><li>Sutter P-1000 micropipette puller</li><li>Synthecon RCCS-4HD rotary cell culture (microgravity)</li></ul></div></div>
+  </div>
+<div class="foot"><div class="fcol"><h4>Pushkar Lele Lab</h4><div>Biomolecular engineering &amp; biological soft-matter</div></div><div class="fcol"><h4>Location</h4><div>241 Jack E. Brown Building</div><div>Texas A&amp;M University</div><div>College Station, TX 77843-3122</div></div><div class="fcol"><h4>Contact</h4><div>(979) 458-2790</div><div><a>plele@tamu.edu</a></div></div><div class="fcol"><h4>Navigation</h4><div>Home · Research · Members</div></div></div>
+</div>
+  <!-- ============================================================
+       CONTACT PAGE
+       ============================================================ -->
+  <div class="page" id="contact">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu"><span onclick="go('home')">Home</span><span onclick="go('research')">Research</span><span onclick="go('pubs')">Publications</span><span onclick="go('members')">Members</span><span onclick="go('facilities')">Facilities</span><span class="cta" onclick="go('contact')">Contact</span></div></div>
+  <div class="band"><div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=80')"></div><div class="band-tint"></div><div class="band-c"><div class="ey">CONTACT</div><h1>Get in touch</h1><p>Find us on the Texas A&amp;M campus in College Station.</p></div></div>
+  <div class="wrap">
+    <div class="cgrid">
+      <div class="cinfo"><h3>Visit us at</h3>
+        <div class="crow"><div class="ic">✉</div><div class="ct"><b>Email</b><br>plele@tamu.edu</div></div>
+        <div class="crow"><div class="ic">☎</div><div class="ct"><b>Telephone</b><br>(979) 458-2790</div></div>
+        <div class="crow"><div class="ic">⚲</div><div class="ct"><b>Address</b><br>241 Jack E. Brown Building<br>Artie McFerrin Department of Chemical Engineering<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div></div>
+      </div>
+      <div class="cmap"></div>
+    </div>
+    <div class="formwrap">
+      <h3>Send us a message</h3>
+      <div class="fsub">Questions about the lab, collaborations, or visits? Drop us a note.</div>
+      <div class="gnote">↪ [In the live site this is a Google Form — responses go straight to the lab's inbox/spreadsheet]</div>
+      <div class="frow">
+        <div class="fld"><label>Name</label><input type="text" placeholder="Your name"></div>
+        <div class="fld"><label>Email</label><input type="email" placeholder="you@example.com"></div>
+      </div>
+      <div class="fld" style="margin-bottom:18px;"><label>Subject</label><input type="text" placeholder="What's this about?"></div>
+      <div class="fld" style="margin-bottom:18px;"><label>Message</label><textarea placeholder="Your message..."></textarea></div>
+      <button class="fsubmit">Send message →</button>
+    </div>
+  </div>
+<div class="foot"><div class="fcol"><h4>Pushkar Lele Lab</h4><div>Biomolecular engineering &amp; biological soft-matter</div></div><div class="fcol"><h4>Location</h4><div>241 Jack E. Brown Building</div><div>Texas A&amp;M University</div><div>College Station, TX 77843-3122</div></div><div class="fcol"><h4>Contact</h4><div>(979) 458-2790</div><div><a>plele@tamu.edu</a></div></div><div class="fcol"><h4>Navigation</h4><div>Home · Research · Members</div></div></div>
+</div>
+  <!-- ============================================================
+       MEMBER PROFILE PAGES — auto-generated by js/app.js from
+       js/members-data.js. Do not edit HTML here; edit that file.
+       ============================================================ -->
+  <div id="profiles-container"></div>
+
+<!-- ============================================================
+     SCRIPTS
+     members-data.js must load BEFORE app.js, since app.js reads
+     the MEMBERS array that file defines.
+     ============================================================ -->
+<script src="js/members-data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

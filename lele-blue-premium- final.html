@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pushkar Lele Lab - Blue v2</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%94%AC</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sans:'Plus Jakarta Sans', system-ui, sans-serif;
+    --blue:#1657c0; --blue-deep:#2d3846; --blue-bright:#2e8ff5; --sky:#f2f4f6; --sky2:#e2e6ea;
+    --cyan:#00c2d1; --accent:#ff8a3d;
+    --line:#dfe3e8; --ink:#1c2126; --muted:#5f6b78;
+    --grad-hero:linear-gradient(120deg,#0a2a6b 0%,#1657c0 55%,#2e8ff5 100%);
+    --grad-cta:linear-gradient(120deg,#1657c0,#2e8ff5);
+    --grad-accent:linear-gradient(120deg,#2e8ff5,#00c2d1);
+    --shadow-sm:0 4px 16px rgba(30,35,45,.08);
+    --shadow-md:0 10px 30px rgba(30,35,45,.13);
+    --shadow-lg:0 20px 50px rgba(20,24,32,.20);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:var(--sans); color:var(--ink); background:#fff; line-height:1.5;}
+  em{font-style:italic;}
+  .ph{color:var(--blue-bright); font-weight:600; font-style:italic;}
+
+  .page{display:none;} .page.show{display:block;}
+
+  /* sticky navbar */
+  .nav{position:sticky; top:0; z-index:800; display:flex; align-items:center; justify-content:space-between; padding:16px 48px; background:rgba(255,255,255,.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line);}
+  .brandbox{display:flex; align-items:center; gap:13px;}
+  .brandname{font-family:var(--sans); font-weight:800; font-size:29px; color:var(--blue-deep); line-height:1; letter-spacing:-.6px;}
+  .brandsub{font-family:var(--sans); font-size:13.5px; color:var(--muted); font-weight:600; margin-top:5px;}
+  .menu{display:flex; align-items:center; gap:28px; font-family:var(--sans); font-weight:700; font-size:16px; color:#2b3a4d;} .menu span{cursor:pointer;} .menu span:hover{color:var(--blue);}
+  .menu .on{color:var(--blue); border-bottom:2px solid var(--blue); padding-bottom:5px;}
+  .menu .cta{background:var(--grad-cta); color:#fff; padding:12px 22px; border-radius:9px; box-shadow:var(--shadow-sm); letter-spacing:.2px;}
+
+  .logo-svg{width:52px; height:52px; flex-shrink:0;}
+
+  .band{position:relative; padding:60px 48px; color:#fff; overflow:hidden; text-align:center;}
+  .band-img{position:absolute; inset:0; background-size:cover; background-position:center;}
+  .band-tint{position:absolute; inset:0; background:linear-gradient(125deg, rgba(10,42,107,.92), rgba(22,87,192,.82) 60%, rgba(46,143,245,.7));}
+  .band-c{position:relative;}
+  .band .ey{font-family:var(--sans); font-weight:800; font-size:13px; letter-spacing:3px; color:#7fd4ff; margin-bottom:14px; text-transform:uppercase;}
+  .band h1{font-family:var(--sans); font-weight:800; font-size:48px; line-height:1.08; letter-spacing:-1px;}
+  .band p{font-family:var(--sans); font-size:18px; opacity:.95; margin-top:14px; max-width:660px; margin-left:auto; margin-right:auto; font-weight:500;}
+
+  .wrap{max-width:1100px; margin:0 auto; padding:60px 40px;}
+  .sec-title{font-family:var(--sans); font-weight:800; font-size:36px; color:var(--blue-deep); text-align:center; margin-bottom:8px; letter-spacing:-.8px;}
+  .sec-sub{font-family:var(--sans); font-size:16.5px; color:var(--muted); text-align:center; margin-bottom:46px;}
+
+  .foot{background:var(--blue-deep); color:rgba(255,255,255,.72); padding:56px 64px 40px; display:grid; grid-template-columns:1.15fr 1.15fr 1fr 1fr; gap:44px; font-family:var(--sans); font-size:14.5px;}
+  .foot a{color:#9fd0f5; text-decoration:none; cursor:pointer;}
+  .foot .fcol h4{color:#fff; font-size:24px; font-weight:700; letter-spacing:-.3px; display:inline-block; margin-bottom:16px; padding-bottom:14px; border-bottom:3px solid var(--blue-bright);}
+  .foot .fcol div{margin-bottom:0; line-height:1.6; padding:9px 0; border-bottom:1px solid rgba(255,255,255,.14);}
+  .foot .fcol div:last-of-type{border-bottom:none;}
+  .foot .fcol div b{color:#fff;}
+  .foot .fcol .fnav-item{cursor:pointer;}
+  .foot .fcol .fnav-item:hover{color:#fff;}
+  .foot .fmap{width:100%; height:190px; border:0; border-radius:8px; margin-top:6px; display:block;}
+  .fbottom{background:#eef0f2; color:var(--muted); padding:18px 64px; font-family:var(--sans); font-size:13.5px;}
+
+  /* ===== HOME hero (split, light, like reference) ===== */
+  .hero{display:grid; grid-template-columns:1fr 1fr; min-height:460px; background:linear-gradient(160deg,var(--sky) 0%, #f5f9ff 60%, #fff 100%);}
+  .hero-l{padding:70px 20px 70px 48px; display:flex; flex-direction:column; justify-content:center;}
+  .hero-l h1{font-family:var(--sans); font-weight:800; font-size:60px; line-height:1.05; color:var(--blue-deep); letter-spacing:-1.8px; margin-bottom:20px;}
+  .hero-underline{display:none;}
+  .hero-l p{font-family:var(--sans); font-size:19px; line-height:1.6; color:#3d5069; max-width:440px; margin-bottom:34px; font-weight:500;}
+  .hero-l .cta{background:var(--grad-cta); color:#fff; font-weight:700; font-size:16px; padding:16px 32px; border-radius:10px; display:inline-flex; align-items:center; gap:10px; width:fit-content; box-shadow:var(--shadow-md); letter-spacing:.2px;}
+  .hero-r{position:relative; overflow:hidden;}
+  .hero-r .img{position:absolute; inset:0; background-image:url('Group/photos/micr-1.jpg'); background-size:cover; background-position:center;}
+  .hero-r .tint{position:absolute; inset:0; background:linear-gradient(90deg, var(--sky) 0%, rgba(238,244,251,.35) 12%, rgba(238,244,251,0) 30%), linear-gradient(160deg, rgba(22,87,192,.4) 0%, rgba(10,42,107,.32) 100%);}
+
+  .rf{background:#fff; border-top:1px solid var(--line); padding:52px 48px;}
+  .rf-head{font-family:var(--sans); font-weight:800; font-size:20px; color:var(--blue-bright); margin-bottom:34px; letter-spacing:2px; text-transform:uppercase;}
+  .rf-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:32px; align-items:start;}
+  .rf-item{display:flex; flex-direction:column; gap:10px;}
+  .rf-icon{width:46px; height:46px; color:var(--blue); background:var(--sky); padding:9px; border-radius:12px; box-shadow:var(--shadow-sm);}
+  .rf-item h4{font-family:var(--sans); font-weight:800; font-size:19px; color:var(--ink); letter-spacing:-.3px;}
+  .rf-item p{font-family:var(--sans); font-size:15px; color:var(--muted); line-height:1.6;}
+  .rf-feature{background:var(--sky); border-radius:12px; overflow:hidden; display:flex; flex-direction:column;}
+  .rf-feature .fimg{height:110px; background-image:url('https://images.unsplash.com/photo-1607000975931-2b1ae9c75d3a?w=600&q=80'); background-size:cover; background-position:center;}
+  .rf-feature .ftext{padding:16px;}
+  .rf-feature .ftext p{font-family:var(--sans); font-size:13.5px; color:#44566a; line-height:1.55; margin-bottom:8px;}
+  .rf-feature .ftext a{font-family:var(--sans); font-size:13.5px; font-weight:600; color:var(--blue-bright); text-decoration:none;}
+
+  .mission{background:linear-gradient(180deg,#fff,var(--sky)); text-align:center; padding:74px 40px;}
+  .mission .ey{font-family:var(--sans); font-weight:800; font-size:17px; letter-spacing:2.5px; color:var(--blue-bright); margin-bottom:20px; text-transform:uppercase;}
+  .mission .lead{font-family:var(--sans); font-weight:700; font-size:33px; line-height:1.5; color:var(--ink); max-width:860px; margin:0 auto; letter-spacing:-.7px;}
+  .mission .lead b{color:var(--blue);}
+
+  .grid4{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .pill{position:relative; height:260px; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:24px; color:#fff; box-shadow:var(--shadow-md); transition:transform .25s, box-shadow .25s;}
+  .pill-img{position:absolute; inset:0; background-size:cover; background-position:center;}
+  .pill-grad{position:absolute; inset:0; background:linear-gradient(0deg, rgba(10,42,107,.96) 10%, rgba(22,87,192,.25) 65%, rgba(46,143,245,.1));}
+  .pill h3{position:relative; font-family:var(--sans); font-weight:800; font-size:21px; margin-bottom:8px; letter-spacing:-.3px;}
+  .pill a{position:relative; font-family:var(--sans); color:#7fd4ff; font-weight:700; font-size:14px; text-decoration:none;}
+
+  .lower{max-width:1100px; margin:0 auto; padding:60px 40px; display:grid; grid-template-columns:1.5fr 1fr; gap:46px;}
+  .news .ey{font-family:var(--sans); font-weight:800; font-size:13px; letter-spacing:2px; color:var(--blue-bright); margin-bottom:22px; text-transform:uppercase;}
+  .ni{padding:16px 0; border-bottom:1px solid var(--line); display:flex; gap:20px;}
+  .ni .d{font-family:var(--sans); font-weight:800; font-size:12px; letter-spacing:1px; color:var(--blue-bright); min-width:84px; padding-top:4px;}
+  .ni .t{font-family:var(--sans); font-weight:600; font-size:17.5px; line-height:1.45; color:var(--ink);}
+  .join{background:var(--grad-hero); border:none; border-radius:18px; padding:36px; box-shadow:var(--shadow-lg);}
+  .join .ey{font-family:var(--sans); font-weight:800; font-size:12.5px; letter-spacing:2px; color:#7fd4ff; margin-bottom:12px; text-transform:uppercase;}
+  .join h3{font-family:var(--sans); font-weight:800; font-size:27px; color:#fff; margin-bottom:14px; letter-spacing:-.4px;}
+  .join p{font-family:var(--sans); font-size:16px; color:rgba(255,255,255,.9); line-height:1.6;}
+  .join a{color:#fff; font-weight:700; text-decoration:underline;}
+
+  /* RESEARCH */
+  .rblock{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center; margin-bottom:52px;}
+  .rblock:nth-child(even) .rtext{order:2;}
+  .rimg{height:300px; border-radius:16px; background-size:cover; background-position:center; box-shadow:var(--shadow-md);}
+  .rtext h3{font-family:var(--sans); font-weight:800; font-size:29px; color:var(--blue-deep); margin-bottom:16px; letter-spacing:-.6px;}
+  .rtext p{font-family:var(--sans); font-size:17px; line-height:1.7; color:#39485a;}
+
+  /* PUBLICATIONS */
+  /* MEMBERS - one group, no split */
+  .pi-card{display:grid; grid-template-columns:200px 1fr; gap:32px; background:#fff; box-shadow:0 4px 20px rgba(26,77,143,.06); border:1px solid var(--line); border-radius:14px; padding:32px; margin-bottom:44px;}
+  .pi-photo{width:200px; height:230px; border-radius:10px; background-size:cover; background-position:center;}
+  .pi-info h3{font-family:var(--sans); font-weight:800; font-size:31px; color:var(--blue-deep); margin-bottom:6px; letter-spacing:-.5px;}
+  .pi-info .role{font-family:var(--sans); font-weight:600; font-size:15px; color:var(--blue-bright); margin-bottom:16px;}
+  .pi-info p{font-family:var(--sans); font-size:15px; line-height:1.6; color:#39485a; margin-bottom:14px;}
+  .pi-info .cred{font-family:var(--sans); font-size:13.5px; color:var(--muted); line-height:1.7;}
+  .role-title{font-family:var(--sans); font-weight:800; font-size:24px; color:var(--blue-deep); margin:0 0 24px; letter-spacing:-.4px;}
+  .mgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .mcard{text-align:center;}
+  .mcard .av{width:100%; aspect-ratio:1; border-radius:14px; background-size:cover; background-position:center; margin-bottom:14px; box-shadow:var(--shadow-sm);}
+  .mcard .nm{font-family:var(--sans); font-weight:800; font-size:17px; color:var(--ink);}
+  .mcard .rl{font-family:var(--sans); font-size:12.5px; color:var(--muted); margin-top:2px;}
+  .alumni{background:#f7fafd; border:1px solid var(--line); border-radius:12px; padding:28px 32px; margin-top:40px;}
+  .alumni h3{font-family:var(--sans); font-weight:700; font-size:20px; color:var(--blue-deep); margin-bottom:16px;}
+  .alumni .ag{columns:2; column-gap:40px; font-family:var(--sans); font-size:14px; line-height:1.9; color:#39485a;}
+
+  /* FACILITIES */
+  .fcard{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; margin-bottom:40px; background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden;}
+  .fcard:nth-child(even) .ftext2{order:2;}
+  .fimg2{height:250px; background-size:cover; background-position:center;}
+  .ftext2{padding:32px;}
+  .ftext2 h3{font-family:var(--sans); font-weight:700; font-size:22px; color:var(--blue-deep); margin-bottom:12px;}
+  .ftext2 ul{font-family:var(--sans); font-size:15px; line-height:1.8; color:#39485a; padding-left:20px;}
+
+  /* NEWS */
+  .timeline{max-width:760px; margin:0 auto;}
+  .tl{display:flex; gap:24px; padding-bottom:32px;}
+  .tl .date{font-family:var(--sans); font-weight:700; font-size:13px; color:var(--blue-bright); min-width:110px; text-align:right; padding-top:3px;}
+  .tl .dot{position:relative; width:14px; flex-shrink:0;}
+  .tl .dot::before{content:''; position:absolute; left:3px; top:6px; width:8px; height:8px; border-radius:50%; background:var(--blue);}
+  .tl .dot::after{content:''; position:absolute; left:6px; top:6px; bottom:-32px; width:2px; background:var(--line);}
+  .tl:last-child .dot::after{display:none;}
+  .tl .body h4{font-family:var(--sans); font-weight:700; font-size:18px; color:var(--ink); margin-bottom:5px;}
+  .tl .body p{font-family:var(--sans); font-size:14.5px; color:var(--muted); line-height:1.55;}
+
+  /* ===== publications: single continuous list ===== */
+  .publist{max-width:900px; margin:0 auto;}
+  .listhead{display:flex; align-items:center; gap:16px; margin-bottom:28px;}
+  .listhead h2{font-family:var(--sans); font-weight:800; font-size:30px; color:var(--blue-deep); letter-spacing:-.6px; white-space:nowrap;}
+  .listrule{flex:1; height:3px; background:var(--grad-accent); border-radius:2px; opacity:.55;}
+  .listcount{font-family:var(--sans); font-weight:700; font-size:12.5px; letter-spacing:1px; text-transform:uppercase; color:var(--blue-bright); white-space:nowrap;}
+  .pubitem{display:flex; gap:18px; padding:20px 22px; border-radius:12px; transition:background .18s, transform .18s; align-items:flex-start;}
+  .pubitem:hover{background:var(--sky); transform:translateX(3px);}
+  .pnum{font-family:var(--sans); font-weight:800; font-size:13px; color:var(--blue-bright); background:var(--sky); border-radius:8px; min-width:32px; height:32px; display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;}
+  .pubitem:hover .pnum{background:#fff;}
+  .ptitle{font-family:var(--sans); font-weight:700; font-size:17px; line-height:1.45; color:var(--ink); margin-bottom:6px; letter-spacing:-.2px;}
+  .pauth{font-family:var(--sans); font-size:14.5px; line-height:1.5; color:var(--muted); margin-bottom:5px;}
+  .pjour{font-family:var(--sans); font-size:14.5px; color:var(--blue); font-weight:600; font-style:italic;}
+  .pyear{font-style:normal; font-weight:700; color:var(--muted);}
+  .pill:hover{transform:translateY(-6px); box-shadow:var(--shadow-lg);}
+  .mcard{transition:transform .2s;} .mcard:hover{transform:translateY(-5px);}
+
+  /* member profile page */
+  .prof-hero{background:var(--grad-hero); color:#fff; padding:56px 48px;}
+  .prof-inner{max-width:1000px; margin:0 auto; display:grid; grid-template-columns:220px 1fr; gap:40px; align-items:center;}
+  .prof-photo{width:220px; height:250px; border-radius:16px; background-size:cover; background-position:center; box-shadow:var(--shadow-lg);}
+  .prof-head .back{font-family:var(--sans); font-weight:700; font-size:13px; color:#9fd0f5; cursor:pointer; margin-bottom:14px; display:inline-block;}
+  .prof-head h1{font-family:var(--sans); font-weight:800; font-size:40px; letter-spacing:-.8px; margin-bottom:8px;}
+  .prof-head .r{font-family:var(--sans); font-weight:600; font-size:17px; color:#bfe0ff; margin-bottom:16px;}
+  .prof-head .links{display:flex; gap:12px; flex-wrap:wrap;}
+  .prof-head .links a{font-family:var(--sans); font-weight:600; font-size:13px; background:rgba(255,255,255,.15); color:#fff; padding:8px 16px; border-radius:8px; text-decoration:none;}
+  .prof-body{max-width:1000px; margin:0 auto; padding:56px 48px; display:grid; grid-template-columns:2fr 1fr; gap:48px;}
+  .prof-body h3{font-family:var(--sans); font-weight:800; font-size:22px; color:var(--blue-deep); margin:0 0 14px; letter-spacing:-.4px;}
+  .prof-body p{font-family:var(--sans); font-size:16px; line-height:1.7; color:#39485a; margin-bottom:18px;}
+  .prof-side{background:var(--sky); border:1px solid var(--line); border-radius:14px; padding:28px; height:fit-content;}
+  .prof-side h4{font-family:var(--sans); font-weight:800; font-size:13px; letter-spacing:1.5px; text-transform:uppercase; color:var(--blue-bright); margin-bottom:14px;}
+  .prof-side .row{font-family:var(--sans); font-size:14.5px; color:var(--ink); margin-bottom:12px; line-height:1.5;}
+  .prof-side .row b{display:block; color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; margin-bottom:2px;}
+  .prof-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
+  .prof-tags span{font-family:var(--sans); font-size:12.5px; font-weight:600; background:#fff; border:1px solid var(--line); color:var(--blue); padding:6px 12px; border-radius:20px;}
+
+  @media(max-width:820px){ .hero{grid-template-columns:1fr;} .rf-grid{grid-template-columns:1fr 1fr;} .grid4,.mgrid{grid-template-columns:1fr 1fr;} .lower,.rblock,.fcard,.foot{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+
+<!-- HOME -->
+<div class="page show" id="home">
+  <div class="nav">
+    <div class="brandbox">
+      <svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/>
+        <circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/>
+        <circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/>
+        <circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/>
+        <circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/>
+        <line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/>
+        <line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/>
+      </svg>
+      <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div>
+    </div>
+    <div class="menu"><span class="on" onclick="go('home')">Home</span><span onclick="go('research')">Research</span><span onclick="go('pubs')">Publications</span><span onclick="go('members')">Members</span><span onclick="go('facilities')">Facilities</span></div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-l">
+      <h1>Understanding life at the molecular level</h1>
+      <div class="hero-underline"></div>
+      <p>We develop quantitative understanding of the molecular mechanisms that drive cell-signaling, cancers, and antibiotic resistance.</p>
+      <a class="cta" onclick="go('research')" style="cursor:pointer;">Explore our research →</a>
+    </div>
+    <div class="hero-r"><div class="img"></div><div class="tint"></div></div>
+  </div>
+
+  <div class="rf">
+    <div class="rf-head">Research Focus</div>
+    <div class="rf-grid">
+      <div class="rf-item">
+        <svg class="rf-icon" viewBox="0 0 24 24" fill="none" stroke="#1a4d8f" stroke-width="1.8"><path d="M9 3h6M10 3v6l-4 9a2 2 0 002 3h8a2 2 0 002-3l-4-9V3"/></svg>
+        <h4>Experimental Approaches</h4>
+        <p>TIRF, FRET, optical tweezers, 3D printing, micro-manipulation, and laser-darkfield imaging.</p>
+      </div>
+      <div class="rf-item">
+        <svg class="rf-icon" viewBox="0 0 24 24" fill="none" stroke="#1a4d8f" stroke-width="1.8"><rect x="3" y="4" width="18" height="12" rx="1"/><path d="M8 20h8M12 16v4"/></svg>
+        <h4>Computational Methods</h4>
+        <p>Stochastic simulations, Monte-Carlo dynamics, coarse-grained modeling, and statistical mechanics.</p>
+      </div>
+      <div class="rf-item">
+        <svg class="rf-icon" viewBox="0 0 24 24" fill="none" stroke="#1a4d8f" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 7l3 3M17 7l-3 3M7 17l3-3M17 17l-3-3"/></svg>
+        <h4>Interdisciplinary Integration</h4>
+        <p>Microfluidics, molecular biology, biochemistry, and 3D printing technologies.</p>
+      </div>
+      </div></div>
+
+  <div class="mission"><div class="ey">WHAT WE STUDY &amp; WHY IT MATTERS</div><div class="lead">We decode how pathogenic bacteria sense and respond to their environment - work central to fighting <b>antibiotic resistance</b>, <b>stomach cancers</b>, and <b>chronic infection</b>.</div></div>
+
+  <div class="wrap"><div class="sec-title">Research pillars</div><div class="sec-sub">Four distinct directions, one mission.</div>
+    <div class="grid4">
+      <div class="pill" onclick="goSection('research','pillar-antibiotic')" style="cursor:pointer;"><div class="pill-img" style="background-image:url('Group/photos/bac.jpg')"></div><div class="pill-grad"></div><h3>Antibiotic tolerance</h3><a>Read more →</a></div>
+      <div class="pill" onclick="goSection('research','pillar-immune')" style="cursor:pointer;"><div class="pill-img" style="background-image:url('Group/photos/traps-scaled.jpeg')"></div><div class="pill-grad"></div><h3>Immune–pathogen</h3><a>Read more →</a></div>
+      <div class="pill" onclick="goSection('research','pillar-carcinogenic')" style="cursor:pointer;"><div class="pill-img" style="background-image:url('Group/photos/v4.jpg')"></div><div class="pill-grad"></div><h3>Carcinogenic bacteria</h3><a>Read more →</a></div>
+      <div class="pill" onclick="goSection('research','pillar-mechanics')" style="cursor:pointer;"><div class="pill-img" style="background-image:url('Group/photos/Fig1.jpg')"></div><div class="pill-grad"></div><h3>Cell mechanics</h3><a>Read more →</a></div>
+    </div>
+  </div>
+
+  <div class="lower" style="grid-template-columns:1fr; max-width:820px;">
+    <div class="join"><div class="ey">JOIN THE LAB</div><h3>Join our team</h3><p>Open positions for graduate students and postdocs. If you're excited by biophysics and infection, we'd love to hear from you. Contact Prof. Lele at <a href="mailto:plele@tamu.edu">plele@tamu.edu</a> to learn more.</p></div>
+  </div>
+  <div class="foot"><div class="fcol"><h4>Pushkar P. Lele</h4><div><b>Professor and Chancellor's Fellow</b></div><div>William and Ruth Neely Faculty Fellow,<br>Artie McFerrin Department of Chemical Engineering,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><div>Phone : (979)-458-2790</div></div><div class="fcol"><h4>Location</h4><div>University Drive &amp; Spence St,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><iframe class="fmap" src="https://maps.google.com/maps?q=College+Station,+TX+77843&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="fcol"><h4>Navigation</h4><div class="fnav-item" onclick="go('home')">Home</div><div class="fnav-item" onclick="go('research')">Research</div><div class="fnav-item" onclick="go('pubs')">Publications</div><div class="fnav-item" onclick="go('members')">Members</div><div class="fnav-item" onclick="go('facilities')">Lab facilities</div></div><div class="fcol"><h4>Visit Department</h4><div>Artie McFerrin Department of Chemical Engineering</div></div></div>
+  <div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
+</div>
+<div class="page" id="research">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<span onclick="go('home')">Home</span>
+<span class="on" onclick="go('research')">Research</span>
+<span onclick="go('pubs')">Publications</span>
+<span onclick="go('members')">Members</span>
+<span onclick="go('facilities')">Facilities</span>
+
+</div></div>
+  <div class="band"><div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1600&q=80')"></div><div class="band-tint"></div><div class="band-c"><div class="ey">OUR RESEARCH</div><h1>Mechanisms of infection &amp; resistance</h1><p>We deploy computational and experimental approaches to investigate how pathogens perceive and respond to environmental stresses.</p></div></div>
+  <div class="wrap">
+    <div class="rblock" id="pillar-antibiotic"><div class="rtext"><h3>Antibiotic tolerance</h3><p>We study the mechanisms by which bacteria develop tolerance against beta-lactam antibiotics, focusing on epigenetic phenomena and short-time adaptations. Working at the single-cell level, we correlate adaptive responses with alterations in the mechanical properties of the bacterial cell wall.</p></div><div class="rimg" style="background-image:url('Group/photos/bac.jpg')"></div></div>
+    <div class="rblock" id="pillar-immune"><div class="rtext"><h3>Immune–pathogen interactions</h3><p>The innate immune system is our first line of defense against infection. We investigate how neutrophils exhibit diverse responses when targeting pathogenic bacteria, combining microfluidics, optical trapping, and single-molecule imaging.</p></div><div class="rimg" style="background-image:url('Group/photos/traps-scaled.jpeg')"></div></div>
+    <div class="rblock" id="pillar-carcinogenic"><div class="rtext"><h3>Spread of carcinogenic bacteria</h3><p><em>Helicobacter pylori</em> infections are a major cause of peptic ulcers and gastric cancers. We investigate how the chemotaxis signaling network modulates <em>H. pylori</em>'s flagellar functions to promote colonization.</p></div><div class="rimg" style="background-image:url('Group/photos/v4.jpg')"></div></div>
+    <div class="rblock" id="pillar-mechanics"><div class="rtext"><h3>Cell mechanics &amp; mechanosensing</h3><p>Bacteria must sense attachment to a surface before establishing biofilms. We research mechanosensing in bacteria to determine how biofilms form, building on the discovery that flagellar protein components function as mechanosensors.</p></div><div class="rimg" style="background-image:url('Group/photos/Fig1.jpg')"></div></div>
+  </div>
+<div class="foot"><div class="fcol"><h4>Pushkar P. Lele</h4><div><b>Professor and Chancellor's Fellow</b></div><div>William and Ruth Neely Faculty Fellow,<br>Artie McFerrin Department of Chemical Engineering,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><div>Phone : (979)-458-2790</div></div><div class="fcol"><h4>Location</h4><div>University Drive &amp; Spence St,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><iframe class="fmap" src="https://maps.google.com/maps?q=College+Station,+TX+77843&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="fcol"><h4>Navigation</h4><div class="fnav-item" onclick="go('home')">Home</div><div class="fnav-item" onclick="go('research')">Research</div><div class="fnav-item" onclick="go('pubs')">Publications</div><div class="fnav-item" onclick="go('members')">Members</div><div class="fnav-item" onclick="go('facilities')">Lab facilities</div></div><div class="fcol"><h4>Visit Department</h4><div>Artie McFerrin Department of Chemical Engineering</div></div></div>
+<div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
+</div>
+<div class="page" id="pubs">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<span onclick="go('home')">Home</span>
+<span onclick="go('research')">Research</span>
+<span class="on" onclick="go('pubs')">Publications</span>
+<span onclick="go('members')">Members</span>
+<span onclick="go('facilities')">Facilities</span>
+
+</div></div>
+  <div class="band"><div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1532153955177-f59af40d6472?w=1600&q=80')"></div><div class="band-tint"></div><div class="band-c"><div class="ey">PUBLICATIONS</div><h1>Peer-reviewed research</h1><p>A complete record of the lab&rsquo;s peer-reviewed work.</p></div></div>
+  <div class="wrap">
+    <div class="publist">
+      <div class="listhead"><h2>Short List</h2><div class="listrule"></div><span class="listcount">9 selected papers</span></div>
+      <div class="pubitem"><div class="pnum">1</div><div class="pbody"><div class="ptitle">Facilitated search and funneling at the cellular scale enable motile bacteria to penetrate extreme confinements</div><div class="pauth">P. Subrahmaniyan, S. Mukhopadhyay, R. Bishayi, R. Gupta, A. Johri, J. Janeev, N. Chaubal, A. Katiyar, T.P. Lele, P.P. Lele</div><div class="pjour">Communications Physics <span class="pyear">2026 (accepted)</span></div></div></div>
+<div class="pubitem"><div class="pnum">2</div><div class="pbody"><div class="ptitle">Heterogeneous Distribution of Proton-Motive Force in Nonheritable Antibiotic Resistance</div><div class="pauth">A. H. Lee, R. Gupta, H. N. Nguyen, I. R. Schmitz, D. A. Siegele, and P. P. Lele</div><div class="pjour">mBio <span class="pyear">2023</span></div></div></div>
+<div class="pubitem"><div class="pnum">3</div><div class="pbody"><div class="ptitle">Mechanosensitive recruitment of stator units promotes binding of the response regulator CheY-P to the flagellar motor</div><div class="pauth">J. D. Antani, R. Gupta, A. H. Lee, K. Y. Rhee, M. D. Manson &amp; P. P. Lele</div><div class="pjour">Nature Communications <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">4</div><div class="pbody"><div class="ptitle">Asymmetric random walks reveal that the chemotaxis network modulates flagellar rotational bias in <em>Helicobacter pylori</em></div><div class="pauth">J. Antani, A. X. Sumali, T. P. Lele, P. P. Lele</div><div class="pjour">eLife <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">5</div><div class="pbody"><div class="ptitle">Biphasic chemotaxis of <em>Escherichia coli</em> to the microbiota metabolite indole</div><div class="pauth">J. Yang, R. Chawla, K. Rhee, R. Gupta, M. Manson, A. Jayaraman, P. P. Lele</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2020, 117 (11) 6114-6120</span></div></div></div>
+<div class="pubitem"><div class="pnum">6</div><div class="pbody"><div class="ptitle">The flagellar motor of <em>Caulobacter crescentus</em> generates more torque when a cell swims backward</div><div class="pauth">P. P. Lele, T. Roland, A. Shrivastava, Y. Chen, H. C. Berg</div><div class="pjour">Nature Physics <span class="pyear">2016, 12, 175-178</span></div></div></div>
+<div class="pubitem"><div class="pnum">7</div><div class="pbody"><div class="ptitle">Response thresholds in bacterial chemotaxis</div><div class="pauth">P. P. Lele, A. Shrivastava, T. Roland, H. C. Berg</div><div class="pjour">Science Advances <span class="pyear">2015, 1:e1500029s</span></div></div></div>
+<div class="pubitem"><div class="pnum">8</div><div class="pbody"><div class="ptitle">Dynamics of mechanosensing in the bacterial flagellar motor</div><div class="pauth">P. P. Lele, Basarab G. Hosu, H. C. Berg</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2013, 110 (29), 11839-11844</span></div></div></div>
+<div class="pubitem"><div class="pnum">9</div><div class="pbody"><div class="ptitle">Mechanism for adaptive remodeling of the bacterial flagellar switch</div><div class="pauth">P. P. Lele, R. W. Branch, V. Nathan, H. C. Berg</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2012, 109 (49), 20018-20022</span></div></div></div>
+    </div>
+
+    <div class="publist" style="margin-top:64px;">
+      <div class="listhead"><h2>Full List</h2><div class="listrule"></div><span class="listcount">37 publications</span></div>
+      <div class="pubitem"><div class="pnum">1</div><div class="pbody"><div class="ptitle">Mechanoplasticity in the response of human neutrophils to bacteria</div><div class="pauth">L. Ghosh, A. Shaji, R. Bishayi, P. Subrahmaniyan, S. Mukhopadhyay, T.P. Lele, P.P. Lele</div><div class="pjour">submitted</div></div></div>
+<div class="pubitem"><div class="pnum">2</div><div class="pbody"><div class="ptitle">High-Fidelity Micron-Sized Pattern Transfer to PDMS Molds through UV-Ozone Treated Polymeric Replicas of Silicon Wafers</div><div class="pauth">Adelie Lorge, Romit Bishayi, Prasanth Shanmughan, Sayak Mukhopadhyay, Pravin Subrahmaniyan, P.P. Lele</div><div class="pjour">submitted</div></div></div>
+<div class="pubitem"><div class="pnum">3</div><div class="pbody"><div class="ptitle">Facilitated search and funneling at the cellular scale enable motile bacteria to penetrate extreme confinements</div><div class="pauth">P. Subrahmaniyan, S. Mukhopadhyay, R. Bishayi, R. Gupta, A. Johri, J. Janeev, N. Chaubal, A. Katiyar, T.P. Lele, P.P. Lele</div><div class="pjour">Communications Physics <span class="pyear">2026 (accepted)</span></div></div></div>
+<div class="pubitem"><div class="pnum">4</div><div class="pbody"><div class="ptitle">Probiotic exopolysaccharide-mediated encapsulation of Indole-3-Acetic Acid: A biocompatible approach for delivery, enhanced stability, and <em>E. coli</em> motility disruption</div><div class="pauth">S. Balyan, S. Mukhopadhyay, D. Chatterjee, V. Dadwal, D.K. Jha, P.P. Lele, B.S. Patil</div><div class="pjour">submitted</div></div></div>
+<div class="pubitem"><div class="pnum">5</div><div class="pbody"><div class="ptitle">Scrutinizing Stator Rotation in the Bacterial Flagellum: Reconciling Experiments and Switching Models</div><div class="pauth">A. Joshi, P. P. Lele</div><div class="pjour">Biomolecules <span class="pyear">2025</span></div></div></div>
+<div class="pubitem"><div class="pnum">6</div><div class="pbody"><div class="ptitle">Low pH amplifies chemotaxis toward urea in <em>Helicobacter pylori</em></div><div class="pauth">A. Shaji, P. Subrahmaniyan, S. Mukhopadhyay, R. Shin, H. Santhoshkumar, P. P. Lele</div><div class="pjour">Biophysical Journal <span class="pyear">2025</span></div></div></div>
+<div class="pubitem"><div class="pnum">7</div><div class="pbody"><div class="ptitle">Urea-loaded PLGA microspheres as point-sources of attractants for <em>Helicobacter pylori</em></div><div class="pauth">P. Shanmughan, P. Subrahmaniyan, D. Bhatnagar, S. Ranganathan, P. P. Lele</div><div class="pjour">Biotechnology and Bioengineering <span class="pyear">2024</span></div></div></div>
+<div class="pubitem"><div class="pnum">8</div><div class="pbody"><div class="ptitle">Dynamic Adaptation in Extant Proteins Facilitates Antibiotic Tolerance in Energetic <em>Escherichia coli</em></div><div class="pauth">S. Mukhopadhyay, R. Bishayi, A. Shaji, A. H. Lee, R. Gupta, N. Mohajeri, A. Katiyar, B. McKee, I. R. Schmitz, R. Shin, T.P. Lele, P.P. Lele</div><div class="pjour">under review</div></div></div>
+<div class="pubitem"><div class="pnum">9</div><div class="pbody"><div class="ptitle">Matrix stiffness drives drop-like nuclear deformation and lamin A/C dependent YAP nuclear translocation</div><div class="pauth">T. Wang, S. Abolghasemzade, B. P. McKee, I. Singh, K. Pendyala, N. Mohajeri, H. Patel, A. Shaji, A. L. Kersey, K. Harsh, S. Kaur, C. R. Dollahon, S. Chukkapalli, P. P. Lele, D. E. Conway, A. K. Gaharwar, R. B. Dickinson, and T. P. Lele</div><div class="pjour">Nature Communications <span class="pyear">2024</span></div></div></div>
+<div class="pubitem"><div class="pnum">10</div><div class="pbody"><div class="ptitle">Reassessing the Standard Chemotaxis Framework for Understanding Biased Migration in <em>Helicobacter pylori</em></div><div class="pauth">J. D. Antani, A. Shaji, R. Gupta, P. P. Lele</div><div class="pjour">Annual Review of Chemical and Biomolecular Engineering <span class="pyear">2023</span></div></div></div>
+<div class="pubitem"><div class="pnum">11</div><div class="pbody"><div class="ptitle">Real-time Deduction of Mechanisms and Kinetics Underlying Photocatalytic Water Disinfection</div><div class="pauth">N. A. Vidwans, K. Rhee, P. P. Lele, S. Vaddiraju</div><div class="pjour">ACS ES&amp;T Water <span class="pyear">2023</span></div></div></div>
+<div class="pubitem"><div class="pnum">12</div><div class="pbody"><div class="ptitle">Indole is sensed by multiple receptor domains in Tar and Tsr</div><div class="pauth">J. Yang, R. Chawla, K. Y. Rhee, R. Gupta, A. Aditya, P. Rane, M. D. Manson, A. Jayaraman, P. P. Lele</div><div class="pjour">under review</div></div></div>
+<div class="pubitem"><div class="pnum">13</div><div class="pbody"><div class="ptitle">Heterogeneous Distribution of Proton-Motive Force in Nonheritable Antibiotic Resistance</div><div class="pauth">A. H. Lee, R. Gupta, H. N. Nguyen, I. R. Schmitz, D. A. Siegele, and P. P. Lele</div><div class="pjour">mBio <span class="pyear">2023</span></div></div></div>
+<div class="pubitem"><div class="pnum">14</div><div class="pbody"><div class="ptitle">Editorial: Biological rotary nanomotors</div><div class="pauth">M. D. Manson, R. Gupta, P. P. Lele, J. Liu and T. M. Duncan</div><div class="pjour">Frontiers in Microbiology <span class="pyear">2022</span></div></div></div>
+<div class="pubitem"><div class="pnum">15</div><div class="pbody"><div class="ptitle">The nucleus bypasses obstacles by deforming like a drop with surface tension mediated by lamin A/C</div><div class="pauth">A. Katiyar, J. Zhang, J. D. Antani, Y. Yu, P. P. Lele, C. A. Reinhart-King, N. J. Sniadecki, K. J. Roux, R. B. Dickinson, T. P. Lele</div><div class="pjour">Advanced Science <span class="pyear">2022</span></div></div></div>
+<div class="pubitem"><div class="pnum">16</div><div class="pbody"><div class="ptitle">Bacterial proprioception: can the bacterium sense its motility?</div><div class="pauth">Rachit Gupta, Junhua Yuan and Pushkar P. Lele</div><div class="pjour">Frontiers in Microbiology <span class="pyear">2022</span></div></div></div>
+<div class="pubitem"><div class="pnum">17</div><div class="pbody"><div class="ptitle">Indole modulates cooperative protein-protein interactions in the flagellar motor</div><div class="pauth">Rachit Gupta, Kathy Y. Rhee, Sarah D. Beagle, Ravi Chawla, Nicolas Perdomo, Steve W. Lockless and Pushkar P. Lele</div><div class="pjour">PNAS Nexus <span class="pyear">2022</span></div></div></div>
+<div class="pubitem"><div class="pnum">18</div><div class="pbody"><div class="ptitle">Flagellar Sensing of Surfaces</div><div class="pauth">J. Antani &amp; P. P. Lele</div><div class="pjour">Physical Biology <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">19</div><div class="pbody"><div class="ptitle">Mechanosensitive recruitment of stator units promotes binding of the response regulator CheY-P to the flagellar motor</div><div class="pauth">J. D. Antani, R. Gupta, A. H. Lee, K. Y. Rhee, M. D. Manson &amp; P. P. Lele</div><div class="pjour">Nature Communications <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">20</div><div class="pbody"><div class="ptitle">Asymmetric random walks reveal that the chemotaxis network modulates flagellar rotational bias in <em>Helicobacter pylori</em></div><div class="pauth">J. Antani, A. X. Sumali, T. P. Lele, P. P. Lele</div><div class="pjour">eLife <span class="pyear">2021</span></div></div></div>
+<div class="pubitem"><div class="pnum">21</div><div class="pbody"><div class="ptitle">Biphasic chemotaxis of <em>Escherichia coli</em> to the microbiota metabolite indole</div><div class="pauth">J. Yang, R. Chawla, K. Rhee, R. Gupta, M. Manson, A. Jayaraman, P. P. Lele</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2020, 117 (11) 6114-6120</span></div></div></div>
+<div class="pubitem"><div class="pnum">22</div><div class="pbody"><div class="ptitle">A method for direct imaging of x-z cross sections of fluorescent samples</div><div class="pauth">A. Katiyar, J. D. Antani, B. P. McKee, R. Gupta, P. P. Lele, T. P. Lele</div><div class="pjour">Journal of Microscopy <span class="pyear">2020</span></div></div></div>
+<div class="pubitem"><div class="pnum">23</div><div class="pbody"><div class="ptitle">Protein expression-independent response of intensity-based pH-sensitive fluorophores in <em>Escherichia coli</em></div><div class="pauth">K. Rhee, R. Chawla, P. P. Lele</div><div class="pjour">PLOS ONE <span class="pyear">2020, 15(8): e0234849</span></div></div></div>
+<div class="pubitem"><div class="pnum">24</div><div class="pbody"><div class="ptitle">Molecular Mechanism for Attractant Signaling to DHMA by <em>E. coli</em> Tar</div><div class="pauth">A. Orr, J. Yang, R. Chawla, K. Hull, M. Zhu, D. Romo, P. P. Lele, A. Jayaraman, M. Manson, P. Tamamis</div><div class="pjour">Biophysical Journal <span class="pyear">2020, 118 (2), 492</span></div></div></div>
+<div class="pubitem"><div class="pnum">25</div><div class="pbody"><div class="ptitle">A skeptic&rsquo;s guide to bacterial mechanosensing</div><div class="pauth">R. Chawla, R. Gupta, T. P. Lele, and P. P. Lele</div><div class="pjour">Journal of Molecular Biology <span class="pyear">2020, 432 (2), 523</span></div></div></div>
+<div class="pubitem"><div class="pnum">26</div><div class="pbody"><div class="ptitle">Switching and Torque Generation in Swarming cells of <em>E. coli</em></div><div class="pauth">K. M. Ford, J. Antani, A. Nagarajan, M. M. Johnson, P. P. Lele</div><div class="pjour">Frontiers in Microbiology <span class="pyear">2018, 9, 2197</span></div></div></div>
+<div class="pubitem"><div class="pnum">27</div><div class="pbody"><div class="ptitle">Viscous drag on the flagellum activates <em>Bacillus subtilis</em> entry into the K-state</div><div class="pauth">C. Diethmaier, R. Chawla, A. Canzoneri, D. B. Kearns, P. P. Lele, D. Dubnau</div><div class="pjour">Molecular Microbiology <span class="pyear">2017, 106(3), 367-380</span></div></div></div>
+<div class="pubitem"><div class="pnum">28</div><div class="pbody"><div class="ptitle">Molecular modeling of Switch-Remodeling <span style="color:#586b84;">(Book Chapter)</span></div><div class="pauth">P. P. Lele</div><div class="pjour">Methods in Microbiology (Clifton, N.J.) <span class="pyear">2018, 1729:347-352</span></div></div></div>
+<div class="pubitem"><div class="pnum">29</div><div class="pbody"><div class="ptitle">Torque, but not FliL, regulates mechanosensitive flagellar motor-function</div><div class="pauth">R. Chawla, K. M. Ford, P. P. Lele</div><div class="pjour">Scientific Reports <span class="pyear">2017, 7, 5565</span></div></div></div>
+<div class="pubitem"><div class="pnum">30</div><div class="pbody"><div class="ptitle">Biophysical Characterization of Flagellar Motor Functions</div><div class="pauth">K. M. Ford, R. Chawla, P. P. Lele</div><div class="pjour">Journal of Visualized Experiments <span class="pyear">2017, 119, e55240</span></div></div></div>
+<div class="pubitem"><div class="pnum">31</div><div class="pbody"><div class="ptitle">The flagellar motor of <em>Caulobacter crescentus</em> generates more torque when a cell swims backward</div><div class="pauth">P. P. Lele, T. Roland, A. Shrivastava, Y. Chen, H. C. Berg</div><div class="pjour">Nature Physics <span class="pyear">2016, 12, 175-178</span></div></div></div>
+<div class="pubitem"><div class="pnum">32</div><div class="pbody"><div class="ptitle">Response thresholds in bacterial chemotaxis</div><div class="pauth">P. P. Lele, A. Shrivastava, T. Roland, H. C. Berg</div><div class="pjour">Science Advances <span class="pyear">2015, 1:e1500029s</span></div></div></div>
+<div class="pubitem"><div class="pnum">33</div><div class="pbody"><div class="ptitle">Switching of Bacterial Flagellar Motors Triggered by Mutant FliG</div><div class="pauth">P. P. Lele &amp; H. C. Berg</div><div class="pjour">Biophysical Journal <span class="pyear">2015, 108 (5), 1275-1280</span></div></div></div>
+<div class="pubitem"><div class="pnum">34</div><div class="pbody"><div class="ptitle">Gliding is driven by a rotary motor</div><div class="pauth">A. Shrivastava, P. P. Lele, H. C. Berg</div><div class="pjour">Current Biology <span class="pyear">2015, 25 (3), 338-341</span></div></div></div>
+<div class="pubitem"><div class="pnum">35</div><div class="pbody"><div class="ptitle">FRAP analysis: accounting for bleaching during image capture</div><div class="pauth">J. Wu, N. Shekhar, P. P. Lele, T. P. Lele</div><div class="pjour">PLoS ONE <span class="pyear">2012, 7(8): e42854</span></div></div></div>
+<div class="pubitem"><div class="pnum">36</div><div class="pbody"><div class="ptitle">Dynamics of mechanosensing in the bacterial flagellar motor</div><div class="pauth">P. P. Lele, Basarab G. Hosu, H. C. Berg</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2013, 110 (29), 11839-11844</span></div></div></div>
+<div class="pubitem"><div class="pnum">37</div><div class="pbody"><div class="ptitle">Mechanism for adaptive remodeling of the bacterial flagellar switch</div><div class="pauth">P. P. Lele, R. W. Branch, V. Nathan, H. C. Berg</div><div class="pjour">Proceedings of the National Academy of Sciences, USA <span class="pyear">2012, 109 (49), 20018-20022</span></div></div></div>
+    </div>
+  </div>
+<div class="foot"><div class="fcol"><h4>Pushkar P. Lele</h4><div><b>Professor and Chancellor's Fellow</b></div><div>William and Ruth Neely Faculty Fellow,<br>Artie McFerrin Department of Chemical Engineering,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><div>Phone : (979)-458-2790</div></div><div class="fcol"><h4>Location</h4><div>University Drive &amp; Spence St,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><iframe class="fmap" src="https://maps.google.com/maps?q=College+Station,+TX+77843&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="fcol"><h4>Navigation</h4><div class="fnav-item" onclick="go('home')">Home</div><div class="fnav-item" onclick="go('research')">Research</div><div class="fnav-item" onclick="go('pubs')">Publications</div><div class="fnav-item" onclick="go('members')">Members</div><div class="fnav-item" onclick="go('facilities')">Lab facilities</div></div><div class="fcol"><h4>Visit Department</h4><div>Artie McFerrin Department of Chemical Engineering</div></div></div>
+<div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
+</div>
+<div class="page" id="members">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<span onclick="go('home')">Home</span>
+<span onclick="go('research')">Research</span>
+<span onclick="go('pubs')">Publications</span>
+<span class="on" onclick="go('members')">Members</span>
+<span onclick="go('facilities')">Facilities</span>
+
+</div></div>
+  <div class="band"><div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1600&q=80')"></div><div class="band-tint"></div><div class="band-c"><div class="ey">OUR TEAM</div><h1>Members</h1><p>The people behind the science.</p></div></div>
+  <div class="wrap">
+    <div class="pi-card">
+      <div class="pi-photo" style="background-image:url('Group/Plele.jpg')"></div>
+      <div class="pi-info"><h3>Dr. Pushkar P. Lele</h3><div class="role">Professor &amp; Chancellor's Fellow · William and Ruth Neely Faculty Fellow</div>
+      <p><span class="ph">[PI bio to be added - short narrative on research vision and background.]</span></p>
+      <div class="cred">Postdoctoral Fellow, Molecular &amp; Cellular Biology, Harvard University<br>Ph.D., Chemical Engineering, University of Delaware<br>B.Tech., Chemical Engineering, UDCT Mumbai</div></div>
+    </div>
+    <div class="role-title">Lab Members</div>
+    <div class="mgrid">
+      <div class="mcard"><div class="av" style="background-image:url('Group/Dr. Parisa Zangoui.JPG')"></div><div class="nm">Dr. Parisa Zangoui</div><div class="rl">Postdoctoral scholar</div></div>
+      <div class="mcard"><div class="av" style="background-image:url('Group/Dr. Sayak Mukhopadhyay.jpg')"></div><div class="nm">Dr. Sayak Mukhopadhyay</div><div class="rl">Postdoctoral scholar</div></div>
+      <div class="mcard"><div class="av" style="background-image:url('Group/Dr. Vibhor Kumar.png')"></div><div class="nm">Dr. Vibhor Kumar</div><div class="rl">Post Doc</div></div>
+      <div class="mcard"><div class="av" style="background-image:url('Group/Romit Bishayi.png')"></div><div class="nm">Romit Bishayi</div><div class="rl">Ph.D. student</div></div>
+      <div class="mcard"><div class="av" style="background-image:url('Group/Pravin Hebbasuru Kuppusamy Subrahmaniyan.png')"></div><div class="nm">Pravin H. K. Subrahmaniyan</div><div class="rl">PhD Student</div></div>
+      <div class="mcard"><div class="av" style="background-image:url('Group/Ayush Joshi.jpg')"></div><div class="nm">Ayush Joshi</div><div class="rl">PhD Student</div></div>
+      <div class="mcard"><div class="av" style="background-image:url('Group/Amirtha Ganapathi.jpg')"></div><div class="nm">Amirtha Ganapathi</div><div class="rl">PhD Student</div></div>
+      <div class="mcard"><div class="av" style="background-image:url('Group/Abey Jacob John.jpeg')"></div><div class="nm">Abey Jacob John</div><div class="rl">PhD student</div></div>
+      <div class="mcard"><div class="av" style="background-image:url('Group/Varsha Viswanathan.jpeg')"></div><div class="nm">Varsha Viswanathan</div><div class="rl">PhD student</div></div>
+    </div>
+    <div class="alumni"><h3>Alumni</h3><div class="ag">
+      Dr. Annie Lee - Eli Lilly &amp; Company<br>Dr. Kathy Rhee - Wildtype<br>Dr. Rachit Gupta - L.E.K Consulting<br>Dr. Jingyun Yang - Seres Therapeutics<br>Dr. Ravi Chawla - Scripps Institute<br>Dr. Jyot Antani - Yale University<br>Nhi Hong Nguyen - University of Michigan<br>Anita Sumali - TAMU<br>Dr. Katie Ford - Bain &amp; Company<br>Madeline Johnson - Vanderbilt University<br>Minh Tran - University of Delaware<br>Dr. Aditya - Memorial Sloan Kettering<br>Chris Sukumpantanasarn - OSIsoft<br>Priya Nair - UT Austin<br>Sophia Lin - BP<br>Rafael Contrucci - GHD
+    </div></div>
+  </div>
+<div class="foot"><div class="fcol"><h4>Pushkar P. Lele</h4><div><b>Professor and Chancellor's Fellow</b></div><div>William and Ruth Neely Faculty Fellow,<br>Artie McFerrin Department of Chemical Engineering,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><div>Phone : (979)-458-2790</div></div><div class="fcol"><h4>Location</h4><div>University Drive &amp; Spence St,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><iframe class="fmap" src="https://maps.google.com/maps?q=College+Station,+TX+77843&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="fcol"><h4>Navigation</h4><div class="fnav-item" onclick="go('home')">Home</div><div class="fnav-item" onclick="go('research')">Research</div><div class="fnav-item" onclick="go('pubs')">Publications</div><div class="fnav-item" onclick="go('members')">Members</div><div class="fnav-item" onclick="go('facilities')">Lab facilities</div></div><div class="fcol"><h4>Visit Department</h4><div>Artie McFerrin Department of Chemical Engineering</div></div></div>
+<div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
+</div>
+<div class="page" id="facilities">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<span onclick="go('home')">Home</span>
+<span onclick="go('research')">Research</span>
+<span onclick="go('pubs')">Publications</span>
+<span onclick="go('members')">Members</span>
+<span class="on" onclick="go('facilities')">Facilities</span>
+
+</div></div>
+  <div class="band"><div class="band-img" style="background-image:url('https://images.unsplash.com/photo-1581093588401-fbb62a02f120?w=1600&q=80')"></div><div class="band-tint"></div><div class="band-c"><div class="ey">LAB FACILITIES</div><h1>Instruments &amp; capabilities</h1><p>State-of-the-art microscopy, microfluidics, and molecular biology infrastructure.</p></div></div>
+  <div class="wrap">
+    <div class="fcard"><div class="fimg2" style="background-image:url('Group/photos/micr-1.jpg')"></div><div class="ftext2"><h3>Microscopy</h3><ul><li>7 microscopes incl. Nikon Ti2-E with Ring-TIRF illumination</li><li>Optical tweezers-equipped Nikon Ti-E</li><li>FRET on live cells; single-photon detection (Hamamatsu PMTs)</li><li>Darkfield, phase, FRAP capabilities</li></ul></div></div>
+    <div class="fcard"><div class="fimg2" style="background-image:url('Group/photos/fluidics.jpg')"></div><div class="ftext2"><h3>Microfluidics</h3><ul><li>Custom microfluidic device fabrication</li><li>Integrated with 3D-printing workflows</li><li><span class="ph">[Additional details to be added]</span></li></ul></div></div>
+    <div class="fcard"><div class="fimg2" style="background-image:url('Group/photos/BSL.jpg')"></div><div class="ftext2"><h3>Molecular Biology &amp; Culturing</h3><ul><li>Genome editing (λ-Red homologous recombineering)</li><li>Plasmid extraction &amp; protein purification</li><li>Molecular cloning; PCR / gel electrophoresis / electroporation</li><li>BSL culturing facilities</li></ul></div></div>
+    <div class="fcard"><div class="fimg2" style="background-image:url('Group/photos/laser.png')"></div><div class="ftext2"><h3>Micro-manipulation &amp; Micro-gravity</h3><ul><li>TransferMan 4r &amp; FemtoJet 4i microinjector</li><li>Sutter P-1000 micropipette puller</li><li>Synthecon RCCS-4HD rotary cell culture (microgravity)</li></ul></div></div>
+  </div>
+<div class="foot"><div class="fcol"><h4>Pushkar P. Lele</h4><div><b>Professor and Chancellor's Fellow</b></div><div>William and Ruth Neely Faculty Fellow,<br>Artie McFerrin Department of Chemical Engineering,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><div>Phone : (979)-458-2790</div></div><div class="fcol"><h4>Location</h4><div>University Drive &amp; Spence St,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><iframe class="fmap" src="https://maps.google.com/maps?q=College+Station,+TX+77843&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="fcol"><h4>Navigation</h4><div class="fnav-item" onclick="go('home')">Home</div><div class="fnav-item" onclick="go('research')">Research</div><div class="fnav-item" onclick="go('pubs')">Publications</div><div class="fnav-item" onclick="go('members')">Members</div><div class="fnav-item" onclick="go('facilities')">Lab facilities</div></div><div class="fcol"><h4>Visit Department</h4><div>Artie McFerrin Department of Chemical Engineering</div></div></div>
+<div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
+</div>
+
+<!-- MEMBER PROFILE (sample) -->
+<div class="page" id="profile">
+  <div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg><div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu"><span onclick="go('home')">Home</span><span onclick="go('research')">Research</span><span onclick="go('pubs')">Publications</span><span class="on" onclick="go('members')">Members</span><span onclick="go('facilities')">Facilities</span></div></div>
+
+  <div class="prof-hero">
+    <div class="prof-inner">
+      <div class="prof-photo" style="background-image:url('Group/Dr. Parisa Zangoui.JPG')"></div>
+      <div class="prof-head">
+        <span class="back" onclick="go('members')">&larr; Back to members</span>
+        <h1>Dr. Parisa Zangoui</h1>
+        <div class="r">Researcher &middot; <span class="ph">[postdoc / role - filled from real data]</span></div>
+        <div class="links"><a>&#9993; Email</a><a>Google Scholar</a><a>LinkedIn</a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prof-body">
+    <div>
+      <h3>About</h3>
+      <p><span class="ph">[Placeholder bio - real text to be added from the form.]</span> Lorem ipsum researcher in the Lele Lab studying bacterial motility and chemotaxis. Joined the group after completing graduate work on single-molecule biophysics, with a focus on how pathogens sense and respond to their environment.</p>
+      <p>Current work combines optical tweezers, microfluidics, and computational modeling to probe the mechanics of infection. Outside the lab, enjoys hiking, chess, and science outreach.</p>
+      <h3>Research</h3>
+      <p><span class="ph">[Placeholder - real research summary to be added.]</span> Investigating the flagellar motor's response to environmental cues, and how mechanosensing drives biofilm formation on surfaces relevant to chronic infection.</p>
+      <h3>Selected publications</h3>
+      <p style="margin-bottom:8px;">&bull; <span class="ph">[Publication 1 placeholder]</span> - Journal Name (Year)</p>
+      <p style="margin-bottom:8px;">&bull; <span class="ph">[Publication 2 placeholder]</span> - Journal Name (Year)</p>
+    </div>
+    <div class="prof-side">
+      <h4>At a glance</h4>
+      <div class="row"><b>Role</b>Researcher</div>
+      <div class="row"><b>Joined</b><span class="ph">[year]</span></div>
+      <div class="row"><b>Email</b><span class="ph">[email]</span></div>
+      <div class="row"><b>Education</b><span class="ph">[degrees, institutions]</span></div>
+      <div class="row"><b>Research interests</b>
+        <div class="prof-tags"><span>Chemotaxis</span><span>Optical tweezers</span><span>Biofilms</span><span>Biophysics</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot"><div class="fcol"><h4>Pushkar P. Lele</h4><div><b>Professor and Chancellor's Fellow</b></div><div>William and Ruth Neely Faculty Fellow,<br>Artie McFerrin Department of Chemical Engineering,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><div>Phone : (979)-458-2790</div></div><div class="fcol"><h4>Location</h4><div>University Drive &amp; Spence St,<br>Texas A&amp;M University<br>College Station, TX 77843-3122</div><iframe class="fmap" src="https://maps.google.com/maps?q=College+Station,+TX+77843&amp;z=14&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><div class="fcol"><h4>Navigation</h4><div class="fnav-item" onclick="go('home')">Home</div><div class="fnav-item" onclick="go('research')">Research</div><div class="fnav-item" onclick="go('pubs')">Publications</div><div class="fnav-item" onclick="go('members')">Members</div><div class="fnav-item" onclick="go('facilities')">Lab facilities</div></div><div class="fcol"><h4>Visit Department</h4><div>Artie McFerrin Department of Chemical Engineering</div></div></div>
+  <div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
+  var el=document.getElementById(id);
+  if(el) el.classList.add('show');
+  window.scrollTo({top:0});
+}
+function goSection(pageId, sectionId){
+  go(pageId);
+  var el=document.getElementById(sectionId);
+  if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+</script>
+</body>
+</html>
