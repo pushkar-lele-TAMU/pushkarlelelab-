@@ -189,7 +189,61 @@
   .prof-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
   .prof-tags span{font-family:var(--sans); font-size:12.5px; font-weight:600; background:#fff; border:1px solid var(--line); color:var(--blue); padding:6px 12px; border-radius:20px;}
 
-  @media(max-width:820px){ .hero{grid-template-columns:1fr;} .rf-grid{grid-template-columns:1fr 1fr;} .grid4,.mgrid{grid-template-columns:1fr 1fr;} .lower,.rblock,.fcard,.foot{grid-template-columns:1fr;} }
+  /* ===== Mobile nav toggle (hamburger) ===== */
+  .navtoggle{display:none; background:none; border:none; cursor:pointer; padding:6px; margin-left:12px; flex-shrink:0;}
+  .navtoggle svg{width:26px; height:26px; display:block; color:var(--blue-deep);}
+
+  img{max-width:100%;}
+
+  @media(max-width:880px){
+    .nav{padding:14px 20px; flex-wrap:wrap;}
+    .navtoggle{display:block;}
+    .brandsub{display:none;}
+    .brandname{font-size:21px;}
+    .logo-svg{width:38px; height:38px;}
+    .menu{display:none; position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:stretch; gap:0; background:#fff; border-bottom:1px solid var(--line); box-shadow:var(--shadow-md); padding:6px 20px 18px; z-index:900;}
+    .nav.menu-open .menu{display:flex;}
+    .menu span{width:100%; padding:14px 0; border-bottom:1px solid var(--line);}
+    .menu .on{border-bottom:1px solid var(--line);}
+    .menu .cta{width:100%; text-align:center; margin-top:10px; padding:13px 22px; box-sizing:border-box;}
+    .hero{grid-template-columns:1fr;}
+    .hero-r{height:260px;}
+    .rf-grid{grid-template-columns:1fr 1fr;}
+    .grid4,.mgrid{grid-template-columns:1fr 1fr;}
+    .lower,.rblock,.fcard,.foot{grid-template-columns:1fr;}
+    .rblock:nth-child(even) .rtext{order:0;}
+    .fcard:nth-child(even) .ftext2{order:0;}
+    .pi-card{grid-template-columns:1fr; text-align:center;}
+    .pi-photo{width:160px; height:180px; margin:0 auto;}
+    .prof-inner{grid-template-columns:1fr; text-align:center;}
+    .prof-photo{width:180px; height:200px; margin:0 auto;}
+    .prof-head .links{justify-content:center;}
+    .prof-body{grid-template-columns:1fr;}
+    .wrap{padding:48px 24px;}
+    .band{padding:44px 24px;}
+    .rf{padding:40px 24px;}
+  }
+
+  @media(max-width:480px){
+    .hero-l{padding:40px 18px;}
+    .hero-l h1{font-size:32px;}
+    .hero-l p{font-size:15.5px;}
+    .band h1{font-size:28px;}
+    .mission{padding:44px 20px;}
+    .mission .lead{font-size:21px;}
+    .wrap{padding:36px 18px;}
+    .sec-title{font-size:24px;}
+    .grid4,.mgrid,.rf-grid{grid-template-columns:1fr;}
+    .foot{padding:36px 20px 26px;}
+    .fbottom{padding:16px 20px;}
+    .pi-info h3{font-size:23px;}
+    .role-title{font-size:20px;}
+    .prof-head h1{font-size:26px;}
+    .listhead h2{font-size:22px;}
+    .alumni .ag{columns:1;}
+    .pubitem{padding:16px 10px; gap:12px;}
+    .ptitle{font-size:15.5px;}
+  }
 </style>
 </head>
 <body>
@@ -213,7 +267,7 @@
       </svg>
       <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div>
     </div>
-    <div class="menu"><span class="on" onclick="go('home')">Home</span><span onclick="go('research')">Research</span><span onclick="go('pubs')">Publications</span><span onclick="go('members')">Members</span><span onclick="go('facilities')">Facilities</span></div>
+    <button class="navtoggle" onclick="toggleMenu(this)" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="menu"><span class="on" onclick="go('home')">Home</span><span onclick="go('research')">Research</span><span onclick="go('pubs')">Publications</span><span onclick="go('members')">Members</span><span onclick="go('facilities')">Facilities</span></div>
   </div>
 
   <div class="hero">
@@ -264,7 +318,7 @@
   <div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
 </div>
 <div class="page" id="research">
-<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><button class="navtoggle" onclick="toggleMenu(this)" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="menu">
 <span onclick="go('home')">Home</span>
 <span class="on" onclick="go('research')">Research</span>
 <span onclick="go('pubs')">Publications</span>
@@ -284,7 +338,7 @@
 <div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
 </div>
 <div class="page" id="pubs">
-<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><button class="navtoggle" onclick="toggleMenu(this)" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="menu">
 <span onclick="go('home')">Home</span>
 <span onclick="go('research')">Research</span>
 <span class="on" onclick="go('pubs')">Publications</span>
@@ -352,7 +406,7 @@
 <div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
 </div>
 <div class="page" id="members">
-<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><button class="navtoggle" onclick="toggleMenu(this)" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="menu">
 <span onclick="go('home')">Home</span>
 <span onclick="go('research')">Research</span>
 <span onclick="go('pubs')">Publications</span>
@@ -390,7 +444,7 @@
 <div class="fbottom">Copyright &copy; 2026 Pushkar Lele Lab.</div>
 </div>
 <div class="page" id="facilities">
-<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu">
+<div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg> <div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><button class="navtoggle" onclick="toggleMenu(this)" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="menu">
 <span onclick="go('home')">Home</span>
 <span onclick="go('research')">Research</span>
 <span onclick="go('pubs')">Publications</span>
@@ -411,7 +465,7 @@
 
 <!-- MEMBER PROFILE (sample) -->
 <div class="page" id="profile">
-  <div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg><div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><div class="menu"><span onclick="go('home')">Home</span><span onclick="go('research')">Research</span><span onclick="go('pubs')">Publications</span><span class="on" onclick="go('members')">Members</span><span onclick="go('facilities')">Facilities</span></div></div>
+  <div class="nav"><div class="brandbox"><svg class="logo-svg" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="10" r="4.5" fill="#1a4d8f"/><circle cx="10" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="38" cy="20" r="4.5" fill="#2b7fd4"/><circle cx="15" cy="37" r="4.5" fill="#1a4d8f"/><circle cx="33" cy="37" r="4.5" fill="#1a4d8f"/><line x1="24" y1="10" x2="10" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="24" y1="10" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="15" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="38" y1="20" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="15" y1="37" x2="33" y2="37" stroke="#9fbfe0" stroke-width="2"/><line x1="10" y1="20" x2="38" y2="20" stroke="#9fbfe0" stroke-width="2"/></svg><div><div class="brandname">Pushkar Lele Lab</div><div class="brandsub">Biomolecular engineering and biological soft-matter</div></div></div><button class="navtoggle" onclick="toggleMenu(this)" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button><div class="menu"><span onclick="go('home')">Home</span><span onclick="go('research')">Research</span><span onclick="go('pubs')">Publications</span><span class="on" onclick="go('members')">Members</span><span onclick="go('facilities')">Facilities</span></div></div>
 
   <div class="prof-hero">
     <div class="prof-inner">
@@ -458,11 +512,15 @@ function go(id){
   var el=document.getElementById(id);
   if(el) el.classList.add('show');
   window.scrollTo({top:0});
+  document.querySelectorAll('.nav.menu-open').forEach(n=>n.classList.remove('menu-open'));
 }
 function goSection(pageId, sectionId){
   go(pageId);
   var el=document.getElementById(sectionId);
   if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+function toggleMenu(btn){
+  btn.closest('.nav').classList.toggle('menu-open');
 }
 </script>
 </body>
